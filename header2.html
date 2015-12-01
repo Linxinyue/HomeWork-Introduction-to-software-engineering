@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.header{
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			height: 60px;
+			width:100%;
+			background-color: #ACB5B5;
+			padding-bottom:2px;
+			text-align: center;
+		}
+		.main_icon{
+			margin-top: 3px;
+			margin-left: 50px;
+			width: 55px;
+			float: left;
+			margin-right: 40px;
+			border: 0;
+		}
+		.top_button{
+			float: left;
+			height: 62px;
+			width: 130px;
+		}
+		.inner_top{
+			font-size: 15pt;
+			margin-top: 20px;
+			margin-bottom: 23px;
+			height: auto;
+		}
+		.top_main{
+			width: 60%;
+			margin-left: 20%;
+			float: left;
+		}
+		.header_right{
+			margin-top:25px;
+			margin-bottom:20px;
+			margin-right: 60px;
+			height: auto;
+			float: right;
+			text-align: center;
+			font-size: 11pt;
+			color: #E9E060;
+		}
+	</style>
+	<script type="text/javascript">
+		function selected_head (secid) {
+			document.getElementById(secid).style.background='#7C8489';
+		}
+		function unselected_head (secid) {
+			document.getElementById(secid).style.background='#ACB5B5';
+		}
+	</script>
+</head>
+<body>
+	<div class="header">
+		<div class="top_main">	
+			<a href="./index.php">
+				<img class='main_icon' src="./image/icon.png">
+			</a>
+
+			<a href="./index.php">
+				<div class="top_button" 
+				id='index' onmouseover="selected_head('index')" onmouseout="unselected_head('index')"><div class='inner_top'>首页</div>
+				</div>
+			</a>
+			<a href="./about.php">
+				<div class="top_button" 
+				id='todo' onmouseover="selected_head('todo')" onmouseout="unselected_head('todo')"><div class='inner_top'>关于SPM</div>
+				</div>
+			</a>
+			<a href="./learnmore.php">
+				<div class="top_button"
+				id='people' onmouseover="selected_head('people')" onmouseout="unselected_head('people')"><div class='inner_top'>了解更多</div></div>
+			</a>
+			<!-- <a href="./contact.php">
+				<div class="top_button"
+				id='birthday' onmouseover="selected_head('birthday')" onmouseout="unselected_head('birthday')"><div class='inner_top'>联系我们</div></div>
+			</a> -->
+			
+		</div>
+		<a href="./user/checkLogin.php">
+			<div class="header_right">进入系统</div>
+		</a>
+	</div>
+</body>
+</html>

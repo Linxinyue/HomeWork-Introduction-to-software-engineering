@@ -1,0 +1,55 @@
+﻿.test_div{
+			width:80%;
+			margin:80px auto;
+		}
+		.nick_name{
+			margin-top:1px;
+			float:left;
+			color:gray;
+			font-size:10pt;
+		}
+		.title{
+			margin-bottom:1px;
+			font-size:18pt;
+		}
+		.date{
+			margin-top:1px;
+			display:inline-block;
+			margin-left:12px;
+			color:gray;
+			font-size:10pt;
+		}
+		.content{
+			margin-top:0px;
+		}
+
+.repeatDiv{
+    -webkit-border-radius: 7px;
+	border-radius: 10px;
+	padding:1px 20px;
+    margin-bottom:15px;
+    background:#cccccc;
+}
+
+.sendMessage{
+    background:#cbc2c2;
+    padding:20px;
+    -webkit-border-radius: 7px;
+	border-radius: 10px;
+}
+.sendMessage p{
+    display:inline;
+    vertical-align:top;
+}
+#TextBox2 {
+    margin-top:10px;
+}
+
+
+#Button1 {
+    margin-top:10px;
+    width:80px;
+    height:30px;
+    margin-bottom:15px;
+    margin-left:52px;
+}

@@ -1,0 +1,27 @@
+﻿	#window1{
+				background:#591BAB;
+				width:100%;
+			}
+			#window2{
+				background:#1B97AB;
+				width:100%;
+			}
+			#window3{
+				background:#2B9BE5;
+				width:100%;
+			}
+			#window4{
+				background:#9AE42B;
+				width:100%;
+			}
+            .main_div{
+				width:80%;
+				margin:70px auto;
+				line-height:25px;
+			}
+			.title{
+				font-size:40pt;
+				float:left;
+				clear:none;
+				color:gray;
+			}
