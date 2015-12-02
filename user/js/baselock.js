@@ -1,5 +1,6 @@
+var globleobj;
 function showpasswd (obj) {
-	alert("wr");
+	//alert("wr");
 	if (document.getElementById(obj+'password').type=="text") {
 		document.getElementById(obj+'password').type="password";
 	} else{
@@ -14,23 +15,61 @@ function showsecpasswd (obj) {
 	};
 }
 function change (obj) {
+	globleobj=obj
 	document.getElementById('changename').value=document.getElementById(obj+'name').innerHTML;
 	document.getElementById('changepasswd').value=document.getElementById(obj+'password').value;
+	document.getElementById('changeaddress').innerHTML=document.getElementById(obj+'address').innerHTML;
 	if(document.getElementById(obj+"sec").title!="none"){
 		//code here
 		document.getElementById('changesecname').value=document.getElementById(obj+'secname').innerHTML;
 		document.getElementById('changesecpasswd').value=document.getElementById(obj+'secpassword').value;
 	}
 	$("#changdiv").slideToggle();
+	$("#newdiv").hide();
+
 }
 function cancle () {
 	$("#changdiv").slideToggle();
 }
+function newlock() {
+	$("#changdiv").hide();
+	$("#newdiv").slideToggle();
+}
+function newsave (argument) {
+	$("#newdiv").slideToggle();
+}
+function newcancle (argument) {
+	$("#newdiv").slideToggle();
+}
+function ajaxContact(address,accountname,accountpassword,accountsecname,accountsecpasswd){
+	$.post("./lock/lockserver.php",
+	{	
+		address:address,
+		accountname:accountname,
+		accountpassword:accountpassword,
+		accountsecname:accountsecname,
+		accountsecpasswd:accountsecpasswd
+	},
+	function(data,status){
+		alert("数据：" + data + "\n状态：" + status);
+		//document.getElementById("target").innerHTML=data;
+	});
+	// setTimeout("document.getElementById('target').innerHTML='保存成功！'",3000);
+	// setTimeout("document.getElementById('target').innerHTML=''",5000);
+}
 function save () {
 	// 1.后台更新数据库
-	
+	var address=document.getElementById('changeaddress').innerHTML;
+	var accountpassword=document.getElementById('changepasswd').value;
+	var accountname=document.getElementById('changename').value;
+	var accountsecname=document.getElementById('changesecname').value;
+	var accountsecpasswd=document.getElementById('changesecpasswd').value;
+	ajaxContact(address,accountname,accountpassword,accountsecname,accountsecpasswd);
 	// 2.更新界面
-
+	document.getElementById(globleobj+'password').value=document.getElementById('changepasswd').value;
+	document.getElementById(globleobj+'address').innerHTML=document.getElementById('changeaddress').innerHTML;
+	document.getElementById(globleobj+'secname').innerHTML=document.getElementById('changesecname').value;
+	document.getElementById(globleobj+'secpassword').value=document.getElementById('changesecpasswd').value;
 	// 3.change页面关闭
 	$("#changdiv").slideToggle();
 }

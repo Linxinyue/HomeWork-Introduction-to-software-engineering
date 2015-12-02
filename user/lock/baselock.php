@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +18,9 @@
 		<div class="buttoncancle" onclick="cancle()">
 			<img class="cancle" src="./img/cancle.png"/>
 		</div>
+		<div id="changeaddress">
+		</div>
+		
 		<div class="accountsceboth">
 			<div class="accountname">
 				name: 
@@ -41,85 +46,52 @@
 					<input id="changesecpasswd"  type="text" />
 				</div>
 			</div>
-			<div id="newplusdiv" >
-				<img onclick="addsec()" class="newplus" src="./img/plus.png" />
-			</div>
 		</div>
 	</div>
 
-<!-- 默认显示的div样式1 -->
-	<div class="accountshow" id="userdiv">
-		<div class="picbutton">
-			<div class="change" onclick="change('user')">
-				<img class="changeimg" src="./img/change.jpg"/>
-			</div>
-			<div class="deletediv" onclick="deleteuser('user')">
-				<img class="delete" src="./img/cancle.png"/>
-			</div>
+<!-- newdiv -->
+<div id="newdiv">
+		<div class="buttoncheck" onclick="newsave()">
+			<img class="check" src="./img/check.png"/>
+		</div>
+		<div class="buttoncancle" onclick="newcancle()">
+			<img class="cancle" src="./img/cancle.png"/>
+		</div>
+		<div class="newaddress">
+			<input type="text" id="newsecpasswd" placeholder="address" />
 		</div>
 		
-		<div class="accountboth">
-			<div class="accountname">
-				<div class="username">name:</div>
-				<div id="username" class="username">xinyue</div>
-			</div>	
-			<div class="accountpwd">
-				pawd:
-				<input id="userpassword" class="password" type="password" value="123456sdfsdf" disabled />
-				<div class="showpassword" onclick="showpasswd('user')">
-					<img class="showpasswordimg" src="./img/showpasswd.jpg"/>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="usersec" title="none"></div>
-
-<!-- 默认带安全的显示div -->
-
-
-<div class="accountsceshow" id="user1div">
-		<div class="picbutton">
-			<div class="change" onclick="change('user1')">
-				<img class="changeimg" src="./img/change.jpg"/>
-			</div>
-			<div class="deletediv" onclick="deleteuser('user1')">
-				<img class="delete" src="./img/cancle.png"/>
-			</div>
-		</div>
 		<div class="accountsceboth">
 			<div class="accountname">
-				<div class="username">name:</div>
-				<div id="user1name" class="username">xinyue1</div>
+				name: 
+				<input id="newname" type="text" />
 			</div>	
 			<div class="accountpwd">
 				pawd:
-				<input id="user1password" type="password" class="password" value="123456789" disabled/>
-				<div class="showpassword" onclick="showpasswd('user1')">
-					<img class="showpasswordimg" src="./img/showpasswd.jpg"/>
-				</div>
+				<input id="newpasswd" type="text" />
+				
 			</div>
 		</div>
 
 		<div class="line"></div>
-		<div class="security">
+
+		<div class="security" id="user1sec">
 			<div class="seccontent">
 				<div class="accountname">
-					<div class="username">name:</div>
-					<div id="user1secname" class="username">xinyue</div>
-				</div>	
-				<div class="accountpwd">
-					pawd:
-					<input  id="user1secpassword" type="password" class="password" value="123456sdfsdf" disabled/>
-					<div class="showpassword" onclick="showsecpasswd('user1')">
-						<img class="showpasswordimg" src="./img/showpasswd.jpg"/>
-					</div>
+					secname: 
+					<input id="newsecname" type="text" />
 				</div>
-			</div>
-			<div id="newplusdiv" >
-				<img onclick="test2()" class="newplus" src="./img/plus.png" />
+				<div class="accountpwd">
+					secpawd:
+					<input id="newsecpasswd"  type="text" />
+				</div>
 			</div>
 		</div>
 	</div>
+
+<!-- 默认带安全的显示div -->
+
+
 
 
 <!-- ////////////////////////////////////////////////// -->
@@ -143,15 +115,57 @@
 	$query="SELECT * FROM `lock` WHERE `userid` = '$name'";
 	$results=$mysqli->query($query);
 	while ($row = $results->fetch_array()) {
-		echo $row[2];
-		include('singlelock.php');
+		$account=$row[0];
+		// require('singlelock.php');
+		echo "<div class='accountsceshow' id='user".$account."div'>
+		<div class='picbutton'>
+			<div class='change' onclick=\"change('user".$account."')\">
+				<img class='changeimg' src='./img/change.jpg'/>
+			</div>
+			<div class='deletediv' onclick=\"deleteuser('user".$account."')\">
+				<img class='delete' src='./img/cancle.png'/>
+			</div>
+		</div>
+		<div id='user".$account."address' class='address'>".$account."</div>
+		<div class='accountsceboth'>
+			<div class='accountname'>
+				<div class='username'>name:</div>
+				<div id='user".$account."name' class='username'>".$row[2]."</div>
+			</div>	
+			<div class='accountpwd'>
+				pawd:
+				<input id='user".$account."password' type='password' class='password' value='".$row[3]."' disabled/>
+				<div class='showpassword' onclick=\"showpasswd('user".$account."')\">
+					<img class='showpasswordimg' src='./img/showpasswd.jpg'/>
+				</div>
+			</div>
+		</div>
+
+		<div class='line'></div>
+		<div class='security' id=\"user".$account."sec\">
+			<div class='seccontent'>
+				<div class='accountname'>
+					<div class='username'>name:</div>
+					<div id='user".$account."secname' class='username'>".$row[4]."</div>
+				</div>	
+				<div class='accountpwd'>
+					pawd:
+					<input  id='user".$account."secpassword' type='password' class='password' value='".$row[5]."' disabled/>
+					<div class='showpassword' onclick=\"showsecpasswd('user".$account."')\">
+						<img class='showpasswordimg' src='./img/showpasswd.jpg'/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>";
 	}
 ?>
 <!-- ///////////////////////////////////////////////// -->
+
 <!-- 添加的div -->
 
-	<div class="plusdiv" onclick="addplus">
-		<img class="plus" src="./img/plus.png"/>
+	<div class="plusdiv" onclick="newlock()">
+		<img class="plus" src="./img/plus.png" />
 	</div>
 </body>
 </html>
