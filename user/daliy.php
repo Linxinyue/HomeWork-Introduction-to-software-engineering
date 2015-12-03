@@ -74,7 +74,7 @@
 				</div>";
 					}
 				?>	
-				<div class="plusdiv" onclick="newlock()">
+				<div class="plusdiv" onclick="newdiarybook()">
 					<img class="plus" src="./img/plus.png" />
 				</div>			 
 		</div>
