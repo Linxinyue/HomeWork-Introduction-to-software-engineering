@@ -36,14 +36,21 @@ function newlock() {
 	$("#newdiv").slideToggle();
 }
 function newsave (argument) {
-	$("#newdiv").slideToggle();
+	var address=document.getElementById('newaddress').value;
+	var accountpassword=document.getElementById('newpasswd').value;
+	var accountname=document.getElementById('newname').value;
+	var accountsecname=document.getElementById('newsecname').value;
+	var accountsecpasswd=document.getElementById('newsecpasswd').value;
+	ajaxContact('new',address,accountname,accountpassword,accountsecname,accountsecpasswd);
+	location.reload(true);
 }
 function newcancle (argument) {
 	$("#newdiv").slideToggle();
 }
-function ajaxContact(address,accountname,accountpassword,accountsecname,accountsecpasswd){
+function ajaxContact(option,address,accountname,accountpassword,accountsecname,accountsecpasswd){
 	$.post("./lock/lockserver.php",
 	{	
+		option:option,
 		address:address,
 		accountname:accountname,
 		accountpassword:accountpassword,
@@ -64,7 +71,7 @@ function save () {
 	var accountname=document.getElementById('changename').value;
 	var accountsecname=document.getElementById('changesecname').value;
 	var accountsecpasswd=document.getElementById('changesecpasswd').value;
-	ajaxContact(address,accountname,accountpassword,accountsecname,accountsecpasswd);
+	ajaxContact('change',address,accountname,accountpassword,accountsecname,accountsecpasswd);
 	// 2.更新界面
 	document.getElementById(globleobj+'password').value=document.getElementById('changepasswd').value;
 	document.getElementById(globleobj+'address').innerHTML=document.getElementById('changeaddress').innerHTML;
@@ -79,5 +86,6 @@ function addsec() {
 function deleteuser(obj) {
 	$("#"+obj+"div").fadeOut();
 	//后台执行删除操作
-	//code here
+	var address=document.getElementById(obj+'address').innerHTML;
+	ajaxContact('delete',address,'accountname','accountpassword','accountsecname','accountsecpasswd');
 }

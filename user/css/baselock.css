@@ -180,6 +180,8 @@ body{
 	opacity:0.3; 
 }
 .address{
-	float: left;
+	position: absolute;
+	height: 20px;
+	overflow: hidden;
 }
 

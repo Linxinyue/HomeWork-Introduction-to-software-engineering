@@ -58,7 +58,7 @@
 			<img class="cancle" src="./img/cancle.png"/>
 		</div>
 		<div class="newaddress">
-			<input type="text" id="newsecpasswd" placeholder="address" />
+			<input type="text" id="newaddress" placeholder="address" />
 		</div>
 		
 		<div class="accountsceboth">
