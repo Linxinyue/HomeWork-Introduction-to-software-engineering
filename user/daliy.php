@@ -5,79 +5,11 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
 	<title>ToDo</title>
+	<link rel="stylesheet" type="text/css" href="./css/maindiary.css" />
 	<style type="text/css">
-		body{
-			margin: 60px 0;
-			padding:0 0;
-		}
-		.left{
-			float: left;
-			width: 380px;
-			padding-top: 40px;
-			background-color: #DCE5E3;
-			overflow: auto;
-		}
-		.left_item{
-			width:310;
-			padding-top: 15px;
-			padding-bottom: 20px;
-			height: 200px;
-			padding-left: 40px;
-		}
-		.left_phpoto{
-			width: 150px;
-			height: 200px;
-			float: left;
-			clear: left;
-		}
-		.left_book_title{
-			float: left;
-			margin-top: 15px;
-			font-size: 14pt;
-			margin-left: 20px;
-		}
-		.left_book_dec{
-			margin-top: 47px;
-			margin-left: 164px;
-			font-size: 9pt;
-			color: #6F6969;
-		}
-		.left_book_date{
-			margin-top: 25px;
-			margin-left: 164px;
-			font-size: 9pt;
-			color: gray;
-		}
-		.right{
-			float: left;
-		}
+		
 	</style>
-	<script type="text/javascript">
-		var hi=innerHeight-105;
-		function todo_selected(selecetedid) {
-			document.getElementById(selecetedid).style.background='#BACAC1';
-		}
-		function todo_unselected(selecetedid) {
-			document.getElementById(selecetedid).style.background='#DCE5E3';
-		}
-	</script>
-	<script type="text/javascript">
-	$(document).ready(function(){ 
-	　　$.get("./day/diary.php",function(data){ //初始將a.html include div#iframe
-	　　　　$("#right").html(data);
-	　　});
-		$(function(){
-		　　$('.left_item').click(function() {
-		  　　// 找出 li 中的超链接 href(#id)
-		 　　　　var $this = $(this);
-		 　　　　_clickTab = $this.find('div').attr('title'); // 找到链接a中的targer的值
-		 　　　　$.get(_clickTab,function(data){
-		 　　　　　　$("#right").html(data); 
-		 　　　　});
-		　　　});
-		});
-	});
-	</script>
+	<script type="text/javascript" src="./js/maindiary.js"></script>
 </head>
 <body>
 	<div>
@@ -104,37 +36,47 @@
 						创建日期：<br/>2015年9月25日22:50:34<br/>
 						最近修改：<br/>2015年9月25日22:50:53	
 					</div>
-				</div>
-				<!-- <div class="left_item" id='next' 
-					onmouseover="todo_selected('next')" 
-					onmouseout="todo_unselected('next')">
-					<img class="left_phpoto" src="../image/daliypic.jpg"/>
-					<div class="left_book_title">
-						张玲菲
-					</div></div>
-				<div class="left_item" id='torrow' 
-					onmouseover="todo_selected('torrow')" 
-					onmouseout="todo_unselected('torrow')">
-					<img class="left_phpoto" src="../image/daliypic.jpg"/>
-					<div class="left_book_title">
-						张莺拓
-					</div></div>
-				<div class="left_item" id='week' 
-					onmouseover="todo_selected('week')" 
-					onmouseout="todo_unselected('week')">
-					<img class="left_phpoto" src="../image/daliypic.jpg"/>
-					<div class="left_book_title">
-						张琼湄
-					</div></div>
-					 
-				<div class="left_item" id='schedule' 
-					onmouseover="todo_selected('schedule')" 
-					onmouseout="todo_unselected('schedule')">
-					<img class="left_phpoto" src="../image/daliypic.jpg"/>
-					<div class="left_book_title">
-						张馨丹
-					</div></div> -->
-					 
+				</div>	
+				<?php 
+					if(isset($_SESSION['user'])){
+						$name=$_SESSION['user'];
+					}else{
+						echo "<script>window.location.href='http://127.0.0.1';</script>";
+					}
+					$mysqli = new mysqli('127.0.0.1', 'root', '', 'my_db');
+					if(mysqli_connect_errno()){
+						echo mysqli_connect_error();
+					}
+
+					$mysqli = mysqli_init();
+					$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
+					$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
+					$mysqli->query("set names 'utf8'");
+					$query="SELECT * FROM `diarybook` WHERE `userid` = '$name'";
+					$results=$mysqli->query($query);
+					while ($row = $results->fetch_array()) {
+						$account=$row[0];
+						// require('singlelock.php');
+						echo "<div class='left_item' id='".$row[0]."' 
+					onmouseover=\"todo_selected('".$row[0]."')\" 
+					onmouseout=\"todo_unselected('".$row[0]."')\">
+					<img class='left_phpoto' src='../image/daliypic.jpg'/>
+					<div class='left_book_title' title='./day/diary.php?name=".$row[0]."'>
+						".$row[0]."
+					</div>
+					<div class='left_book_dec'>
+						".$row[1]."
+					</div>
+					<div class='left_book_date'>
+						创建日期：<br/>".$row[2]."<br/>
+						最近修改：<br/>".$row[3]."	
+					</div>
+				</div>";
+					}
+				?>	
+				<div class="plusdiv" onclick="newlock()">
+					<img class="plus" src="./img/plus.png" />
+				</div>			 
 		</div>
 		<div class="right" id="right">
 			
