@@ -4,7 +4,7 @@ body{
 	overflow-y: hidden;
 }
 .myhr{
-	width: 100px;
+	width: 500px;
 	float: left;
 	margin-left: 70px;
 }
@@ -33,7 +33,7 @@ input::-webkit-input-placeholder{
 	clear: both;
 	margin-left: 70px;
 	margin-top: 30px;
-	width: 70%;
+	width: 55%;
 	height: 390px;
 }
 .inputcontent{
@@ -45,22 +45,33 @@ input::-webkit-input-placeholder{
 	font-size: 12pt;
 	resize:none;
 }
-.buttondiv{
-	margin-left: 62%;
-	float: left;
+
+.tools{
+	position: fixed;
+	width: 50px;
+	left: 1200px;
+	top:200px;
+	line-height: 40px;
+	text-align: center;
 }
-.button{
-	border:0px;
-	margin-top: 20px;
-	background-color: #9AA0F5;
-	margin-left: 8px;
-	width: 80px;
+.change{
+	margin-top: 10px;
+	background-color: #F27EE6;
+	border-radius: 20px;
+	width: 40px;
 	height: 40px;
-	border-radius: 5px;
 }
-.button:hover{
-	background-color: #5E68F5;
+.delete{
+	margin-top: 10px;
+	background-color: #8A7EF3;
+	border-radius: 20px;
+	width: 40px;
+	height: 40px;
 }
-.button:active{
-	background-color: #1407CE;
+.save{
+	margin-top: 10px;
+	background-color: #ADF37E;
+	border-radius: 20px;
+	width: 40px;
+	height: 40px;
 }

@@ -14,19 +14,11 @@
 <body>
 	<div>
 		<div class="left" id='left'>
-				<div class="left_item" id='basket' 
-					onmouseover="todo_selected('basket')" 
-					onmouseout="todo_unselected('basket')">
-					<img class="left_phpoto" src="../image/daliypic.jpg"/>
-					<div class="left_book_title" title="./day/diary.php?name=1">
-						笔记本名称
-					</div>
-				</div>
-				<div class="left_item" id='today' 
+				<!-- <div class="left_item" id='today' 
 					onmouseover="todo_selected('today')" 
 					onmouseout="todo_unselected('today')">
 					<img class="left_phpoto" src="../image/daliypic.jpg"/>
-					<div class="left_book_title" title="./day/diary.php?name=2">
+					<div class="left_book_title" title="./day/diary.php?title=2">
 						张筱萱
 					</div>
 					<div class="left_book_dec">
@@ -36,7 +28,7 @@
 						创建日期：<br/>2015年9月25日22:50:34<br/>
 						最近修改：<br/>2015年9月25日22:50:53	
 					</div>
-				</div>	
+				</div> -->	
 				<?php 
 					if(isset($_SESSION['user'])){
 						$name=$_SESSION['user'];
@@ -61,7 +53,7 @@
 					onmouseover=\"todo_selected('".$row[0]."')\" 
 					onmouseout=\"todo_unselected('".$row[0]."')\">
 					<img class='left_phpoto' src='../image/daliypic.jpg'/>
-					<div class='left_book_title' title='./day/diary.php?name=".$row[0]."'>
+					<div class='left_book_title' title='./day/diary.php?title=".$row[0]."'>
 						".$row[0]."
 					</div>
 					<div class='left_book_dec'>
@@ -74,9 +66,14 @@
 				</div>";
 					}
 				?>	
-				<div class="plusdiv" onclick="newdiarybook()">
-					<img class="plus" src="./img/plus.png" />
-				</div>			 
+
+				<div class="left_item" id="editbook" 
+					onmouseover="todo_selected('editbook')" 
+					onmouseout="todo_unselected('editbook')">
+					<div class="editbook" title="./day/editbook.php">
+						编辑
+					</div>
+				</div>
 		</div>
 		<div class="right" id="right">
 			

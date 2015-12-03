@@ -54,8 +54,7 @@
 </div>
 
 <div class="tools">
-	<div class="change" onclick="change()">修</div>
-	<div class="delete" onclick="deletediary()">删</div>
+	<div class="change" onclick="newdiary()">存</div>
 	<div class="save" onclick="cancle()">回</div>
 </div>
 </body>

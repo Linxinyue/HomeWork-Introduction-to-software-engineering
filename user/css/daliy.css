@@ -1,20 +1,14 @@
-.arcitle{
-	margin-left: 30px;
-	margin-top: 30px;
-	width: 200px;
-	height: 250px;
-	background-color: #cccccc;
+.diarys{
+	width: 1000px;
 	float: left;
-	box-shadow:2px 2px 10px #909090;
 }
-.arcitleleft{
-	margin-left: 30px;
+.arcitle{
+	float: left;
+	margin-left: 40px;
 	margin-top: 30px;
 	width: 200px;
 	height: 250px;
 	background-color: #cccccc;
-	float: left;
-	clear: left;
 	box-shadow:2px 2px 10px #909090;
 }
 .diarytitle{
@@ -29,6 +23,7 @@
 	color: gray;
 }
 .diarycreattime{
+	clear: both;
 	float: right;
 	font-size: 9pt;
 	margin-top: 40px;
@@ -36,9 +31,27 @@
 	color: gray;
 }
 .diarymodtime{
+	clear: both;
 	float: right;
 	font-size: 9pt;
 	margin-top: 5px;
 	margin-right: 3px;
 	color: gray;
+}
+.plusdiv{
+	clear: both;
+	float: left;
+	box-shadow:2px 2px 10px #909090;
+	border-radius: 7px;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
+.plus{
+	width: 100px;
+	height: 100px;
+	opacity:0.3; 
 }

@@ -54,8 +54,8 @@
 		　　$('.left_item').click(function() {
 		  　　// 找出 li 中的超链接 href(#id)
 		 　　　　var $this = $(this);
-		 　　　　_clickTab = $this.find('div').attr('title'); // 找到链接a中的targer的值
-		 　　　　$.get(_clickTab,function(data){
+		 　　　　clickTab = $this.find('div').attr('title'); // 找到链接a中的targer的值
+		 　　　　$.get(clickTab,function(data){
 		 　　　　　　$("#right").html(data); 
 		 　　　　});
 		　　　});
