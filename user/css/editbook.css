@@ -61,6 +61,7 @@
 	float: left;
 	width: 300px;
 }
+
 .contenttitle{
 	margin-left: 15px;
 	line-height: 20px;
@@ -68,6 +69,13 @@
 	padding-bottom: 2px;
 	padding-left: 5px;
 	border-bottom: 1px dashed gray;
+}
+.leasttitle{
+	margin-left: 15px;
+	line-height: 20px;
+	padding-top: 8px;
+	padding-bottom: 2px;
+	padding-left: 5px;
 }
 .newdiarybook{
 	border-radius: 25px;
@@ -80,4 +88,50 @@
 	width: 50px;
 	height: 50px;
 	background-color: #8A7EF3;
+}
+.newdiv{
+	position: fixed;
+	width: 300px;
+	height: 400px;
+	background-color: #F4F493;
+	left: 45%;
+	top: 25%;
+}
+#newbooktitle{
+	padding-left: 5px;
+	height: 30px;
+	font-size: 15pt;
+	margin-top: 30px;
+	margin-left: 10px;
+	width: 150px;
+	border: 0px;
+	border-bottom: 1px solid gray;
+	outline: none;
+	background-color: #F4F493;
+}
+#newbookdesc{
+	margin-top: 15px;
+	height: 50px;
+	margin-left: 10px;
+	width: 220px;
+	background-color: #F4F496;
+	height: 250px;
+	resize: none;
+	border: 0px;
+	outline: none;
+}
+.button{
+	float: right;
+	border: 0px;
+	margin-right: 10px;
+	width: 60px;
+	height: 35px;
+	background-color: #7882DE;
+	border-radius: 3px;
+}
+.button:hover{
+	background-color: #5967E8;
+}
+.button:active{
+	background-color: #2F43F7;
 }

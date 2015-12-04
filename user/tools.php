@@ -36,6 +36,9 @@
 			float: left;
 			overflow: hidden;
 		}
+		#count{
+			display: none;
+		}
 	</style>
 	<script type="text/javascript">
 		var hi=innerHeight-105;
@@ -47,10 +50,12 @@
 			document.getElementById(selecetedid).style.background='#DCE5E3';
 		}
 		function showcolor(){
+			$("#count").hide();
 			$("#color").show();
 		}
 		function showcount(){
 			$("#color").hide();
+			$("#count").show();
 		}
 	</script>
 </head>
