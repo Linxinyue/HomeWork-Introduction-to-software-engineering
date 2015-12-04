@@ -39,7 +39,6 @@
 		}
 		.right{
 			float: left;
-			margin-left: 260px;
 		}
 	</style>
 	<script type="text/javascript">
@@ -51,6 +50,23 @@
 			document.getElementById(selecetedid).style.background='#DCE5E3';
 		}
 	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){ 
+	　　$.get("./contact/singlecontact.php",function(data){ //初始將a.html include div#iframe
+	　　　　$("#right").html(data);
+	　　});
+		$(function(){
+		　　$('.left_item').click(function() {
+		  　　// 找出 li 中的超链接 href(#id)
+		 　　　　var $this = $(this);
+		 　　　　clickTab = $this.find('div').attr('title'); // 找到链接a中的targer的值
+		 　　　　$.get(clickTab,function(data){
+		 　　　　　　$("#right").html(data); 
+		 　　　　});
+		　　　});
+		});
+	});
+	</script>
 </head>
 <body>
 	<div>
@@ -59,28 +75,28 @@
 					onmouseover="todo_selected('basket')" 
 					onmouseout="todo_unselected('basket')">
 					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts">
+					<div class="left_contacts" title="./contact/singlecontact.php">
 						张馨闵
 					</div></div>
 				<div class="left_item" id='today' 
 					onmouseover="todo_selected('today')" 
 					onmouseout="todo_unselected('today')">
 					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts">
+					<div class="left_contacts" title="./contact/singlecontact.php"> 
 						张筱萱
 					</div></div>
 				<div class="left_item" id='next' 
 					onmouseover="todo_selected('next')" 
 					onmouseout="todo_unselected('next')">
 					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts">
+					<div class="left_contacts" title="./contact/singlecontact.php">
 						张玲菲
 					</div></div>
 				<div class="left_item" id='torrow' 
 					onmouseover="todo_selected('torrow')" 
 					onmouseout="todo_unselected('torrow')">
 					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts">
+					<div class="left_contacts" title="./contact/singlecontact.php">
 						张莺拓
 					</div></div>
 				<div class="left_item" id='week' 
@@ -107,7 +123,7 @@
 						任务篮
 					</div></div>
 		</div>
-		<div class="right">
+		<div class="right" id="right">
 			
 		</div>
 		<script type="text/javascript">

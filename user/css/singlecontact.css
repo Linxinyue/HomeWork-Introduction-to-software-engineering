@@ -1,0 +1,102 @@
+.information{
+	margin-left: 40px;
+	margin-top: 60px;
+	float: left;
+	/*background-color: #cccccc;	*/
+	font-family: yahei;
+}
+
+.photo{
+	width: 100px;
+	height: 100px;
+	float: left;
+	border-radius: 50px;
+}
+.name{
+	font-size: 23pt;
+	padding-bottom: 15px;
+	width: 600px;
+	margin-left: 30px;
+	margin-top: 20px;
+	float: left;
+	border-bottom: 1px solid #A3A3A3;
+	
+}
+.phone{
+	clear: both;
+	float: left;
+	margin-left: 50px;
+	margin-top: 40px;
+}
+.phonedec{
+	float: left;
+}
+.phoneconent{
+	float: left;
+	margin-left: 42px;
+	padding-bottom: 10px;
+	width: 600px;
+	border-bottom: 1px solid #E7E7E7;	
+}
+.company{
+	clear: both;
+	float: left;
+	margin-left: 50px;
+	margin-top: 30px;
+}
+.note{
+	clear: both;
+	float: left;
+	margin-left: 50px;
+	margin-top: 30px;
+	padding-bottom: 15px;
+	width: 675px;
+	border-bottom: 1px solid #E7E7E7;
+}
+.notecontent{
+	clear: both;
+	float: left;
+	padding-left: 20px;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+.tools{
+	clear: both;
+	/*background-color: #F9F9F9;*/
+	float: left;
+	line-height: 50px;
+	margin-top: 30px;
+	width: 730px;
+	height: 50px;
+}
+.editcontact{
+	float: right;
+	margin-right: 20px;
+	color: #3FA8E9;
+}
+.deletecontact{
+	float: right;
+	color: red;
+	margin-right: 20px;
+}
+
+.inputphone{
+	height: 19px;
+	width: 200px;
+	font-size: 12pt;
+	font-family: yahei;
+	border: 0px;
+	outline: none;
+}
+.inputnote{
+	resize:none;
+	width: 400px;
+	height: 120px;
+	border:0px;
+	font-family: yahei;
+	font-size: 12pt;
+	outline: none;
+}
+#inputcompany,#inputnote,#inputphone{
+	display: none;
+}
