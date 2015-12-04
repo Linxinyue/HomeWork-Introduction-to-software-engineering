@@ -4,69 +4,10 @@
 	<?php include('header.php');?>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/contact.css" />
+	<script type="text/javascript" src="./js/contact.js"></script>
 	<title>ToDo</title>
-	<style type="text/css">
-		body{
-			margin: 60px 0;
-			padding:0 0;
-		}
-		.left{
-			float: left;
-			width: 270px;
-			padding-top: 40px;
-			background-color: #DCE5E3;
-			overflow: auto;
-		}
-		.left_item{
-			width:83%;
-			padding-top: 15px;
-			padding-bottom: 20px;
-			height: 40px;
-			padding-left: 40px;
-			font-size: 12pt;
-		}
-		.left_phpoto{
-			width: 50px;
-			float: left;
-			clear: left;
-		}
-		.left_contacts{
-			float: left;
-			margin-top: 15px;
-			margin-bottom: 15px;
-			height: auto;
-			margin-left: 20px;
-		}
-		.right{
-			float: left;
-		}
-	</style>
-	<script type="text/javascript">
-		var hi=innerHeight-105;
-		function todo_selected(selecetedid) {
-			document.getElementById(selecetedid).style.background='#BACAC1';
-		}
-		function todo_unselected(selecetedid) {
-			document.getElementById(selecetedid).style.background='#DCE5E3';
-		}
-	</script>
-	<script type="text/javascript">
-	$(document).ready(function(){ 
-	　　$.get("./contact/singlecontact.php",function(data){ //初始將a.html include div#iframe
-	　　　　$("#right").html(data);
-	　　});
-		$(function(){
-		　　$('.left_item').click(function() {
-		  　　// 找出 li 中的超链接 href(#id)
-		 　　　　var $this = $(this);
-		 　　　　clickTab = $this.find('div').attr('title'); // 找到链接a中的targer的值
-		 　　　　$.get(clickTab,function(data){
-		 　　　　　　$("#right").html(data); 
-		 　　　　});
-		　　　});
-		});
-	});
-	</script>
+
 </head>
 <body>
 	<div>
