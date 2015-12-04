@@ -1,9 +1,12 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<link rel="stylesheet" type="text/css" href="./css/yahei.css" />
 	<style type="text/css">
 		a{
 			text-decoration: none;
+		}
+		body{
+			font-family: yahei;
 		}
 		.header{
 			position: fixed;
@@ -11,9 +14,10 @@
 			top: 0px;
 			height: 60px;
 			width:100%;
-			background-color: #ACB5B5;
+			background-color: #2EB7F2;
 			padding-bottom:2px;
 			text-align: center;
+			box-shadow:0px 2px 10px #909090;
 		}
 		.main_icon{
 			width: 55px;
@@ -54,10 +58,10 @@
 	</style>
 	<script type="text/javascript">
 		function selected (idstr) {
-			document.getElementById(idstr).style.background='#7C8489';
+			document.getElementById(idstr).style.background='#2E69F2';
 		}
 		function unselected (idstr) {
-			document.getElementById(idstr).style.background='#ACB5B5';
+			document.getElementById(idstr).style.background='#2EB7F2';
 		}
 	</script>
 
