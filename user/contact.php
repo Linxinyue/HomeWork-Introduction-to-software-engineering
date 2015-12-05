@@ -12,57 +12,34 @@
 <body>
 	<div>
 		<div class="left" id='left'>
-				<div class="left_item" id='basket' 
-					onmouseover="todo_selected('basket')" 
-					onmouseout="todo_unselected('basket')">
-					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts" title="./contact/singlecontact.php">
-						张馨闵
-					</div></div>
-				<div class="left_item" id='today' 
-					onmouseover="todo_selected('today')" 
-					onmouseout="todo_unselected('today')">
-					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts" title="./contact/singlecontact.php"> 
-						张筱萱
-					</div></div>
-				<div class="left_item" id='next' 
-					onmouseover="todo_selected('next')" 
-					onmouseout="todo_unselected('next')">
-					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts" title="./contact/singlecontact.php">
-						张玲菲
-					</div></div>
-				<div class="left_item" id='torrow' 
-					onmouseover="todo_selected('torrow')" 
-					onmouseout="todo_unselected('torrow')">
-					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts" title="./contact/singlecontact.php">
-						张莺拓
-					</div></div>
-				<div class="left_item" id='week' 
-					onmouseover="todo_selected('week')" 
-					onmouseout="todo_unselected('week')">
-					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts">
-						张琼湄
-					</div></div>
-					 
-				<div class="left_item" id='schedule' 
-					onmouseover="todo_selected('schedule')" 
-					onmouseout="todo_unselected('schedule')">
-					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts">
-						张馨丹
-					</div></div>
-					 
-				<div class="left_item" id='further' 
-					onmouseover="todo_selected('further')" 
-					onmouseout="todo_unselected('further')">
-					<img class="left_phpoto" src="../image/girl.jpg"/>
-					<div class="left_contacts">
-						任务篮
-					</div></div>
+		<?php 
+			if(isset($_SESSION['user'])){
+				$name=$_SESSION['user'];
+			}
+			$mysqli = new mysqli('127.0.0.1', 'root', '', 'my_db');
+			if(mysqli_connect_errno()){
+				echo mysqli_connect_error();
+			}
+
+			$mysqli = mysqli_init();
+			$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
+			$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
+			$mysqli->query("set names 'utf8'");
+			$query="SELECT * FROM `contact` WHERE `userid` = '$name'";
+			$results=$mysqli->query($query);
+			$contactount=0;
+			while ($row = $results->fetch_array()) {
+				// require('singlelock.php');
+				echo "<div class='left_item' id='contact".$contactount."' 
+					onmouseover=\"todo_selected('contact".$contactount."')\" 
+					onmouseout=\"todo_unselected('contact".$contactount."')\">
+					<img class='left_phpoto' src='../image/girl.jpg'/>
+					<div class='left_contacts' title='./contact/singlecontact.php?contactname=".$row[2]."'>
+						".$row[2]."
+					</div></div>";
+				$contactount+=1;
+			}
+		?>	
 		</div>
 		<div class="right" id="right">
 			

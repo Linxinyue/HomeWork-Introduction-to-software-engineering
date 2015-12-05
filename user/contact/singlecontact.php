@@ -8,18 +8,36 @@
 </head>
 <body>
 <div class="information">
-	
+	<?php 
+		session_start();
+		if(isset($_SESSION['user'])){
+			$name=$_SESSION['user'];
+		}
+		if(isset($_GET['contactname'])){
+			$contactname=$_GET['contactname'];
+		}else{
+			$contactname="";
+		}
+		$mysqli = mysqli_init();
+		$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
+		$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
+		$mysqli->query("set names 'utf8'");
+		$query="SELECT * FROM `contact` WHERE `userid` = '$name' and `contactname` = '$contactname'";
+		$results=$mysqli->query($query);
+		$row = $results->fetch_array();
+	?>
+
 	<div class="photo">
 		<img src="./img/girl.jpg" class="photo" />
 	</div>
 	<div class="name">
-		新月
+		<?php echo $row[2]; ?>
 	</div>
 	<div class="phone">
 		<div class="phonedec">
 			电话
 		</div>
-		<div class="phoneconent" id="phonecontent">15000791737</div>
+		<div class="phoneconent" id="phonecontent"><?php echo $row[3]; ?></div>
 		<div class="phoneconent" id="inputphone">
 			<input type="text" placeholder="电话" class="inputphone" />
 		</div>
@@ -28,7 +46,7 @@
 		<div class="phonedec">
 			公司
 		</div>
-		<div class="phoneconent" id="companycontent">公司或标签</div>
+		<div class="phoneconent" id="companycontent"><?php echo $row[4]; ?></div>
 		<div class="phoneconent" id="inputcompany">
 			<input type="text" placeholder="公司或标签" class="inputphone" value="" />
 		</div>
@@ -36,7 +54,7 @@
 	<div class="note">
 		备注
 	</div>
-	<div class="notecontent" id="notecontent">其实这个人是我自己</div>
+	<div class="notecontent" id="notecontent"><?php echo $row[5]; ?></div>
 	<div class="notecontent" id="inputnote">
 		<textarea class="inputnote" placeholder="备注"></textarea>
 	</div>
