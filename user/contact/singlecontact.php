@@ -30,8 +30,9 @@
 	<div class="photo">
 		<img src="./img/girl.jpg" class="photo" />
 	</div>
-	<div class="name">
-		<?php echo $row[2]; ?>
+	<div class="name" id="contactname"><?php echo $row[2]; ?></div>
+	<div class="name" id="inputname">
+		<input type="text" placeholder="姓名" class="inputname" />
 	</div>
 	<div class="phone">
 		<div class="phonedec">

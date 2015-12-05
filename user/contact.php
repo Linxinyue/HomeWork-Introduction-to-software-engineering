@@ -40,6 +40,13 @@
 				$contactount+=1;
 			}
 		?>	
+			<div class='left_item' id='newcontact'
+				onmouseover="todo_selected('newcontact')" 
+				onmouseout="todo_unselected('newcontact')">
+				<div class='left_contacts' id='newtool'  title='./contact/newcontact.php?contactname.php'>
+					添加
+				</div>
+			</div>
 		</div>
 		<div class="right" id="right">
 			

@@ -6,7 +6,7 @@ var hi=innerHeight-105;
 			document.getElementById(selecetedid).style.background='#DCE5E3';
 		}
 		$(document).ready(function(){ 
-	　　$.get("./contact/singlecontact.php",function(data){ //初始將a.html include div#iframe
+	　　$.get("./contact/newcontact.php",function(data){ //初始將a.html include div#iframe
 	　　　　$("#right").html(data);
 	　　});
 		$(function(){

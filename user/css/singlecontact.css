@@ -79,7 +79,14 @@
 	color: red;
 	margin-right: 20px;
 }
-
+.inputname{
+	height: 35px;
+	width: 200px;
+	font-size: 23pt;
+	outline: none;
+	border:0px;
+	font-family: yahei;
+}
 .inputphone{
 	height: 19px;
 	width: 200px;
@@ -97,6 +104,6 @@
 	font-size: 12pt;
 	outline: none;
 }
-#inputcompany,#inputnote,#inputphone{
+#inputcompany,#inputnote,#inputphone,#inputname{
 	display: none;
 }
