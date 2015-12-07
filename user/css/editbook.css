@@ -96,6 +96,7 @@
 	background-color: #F4F493;
 	left: 45%;
 	top: 25%;
+	display: none;
 }
 #newbooktitle{
 	padding-left: 5px;

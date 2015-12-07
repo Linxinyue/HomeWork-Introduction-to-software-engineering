@@ -28,27 +28,22 @@
 			});
 
 		});
-		// $(function(){
-		// 　　$('div').click(function() {
-		//   　　// 找出 li 中的超链接 href(#id)
-		// 	 　　var $this = $(this);
-		// 	 　　clickTab = $this.find('div').attr('title'); 
-		// 	 　　$.get(clickTab,function(data){
-		// 	 　　　　$("#right").html(data); 
-		// 	 　　});
-		// 	});
-		// });
 	</script>
 	<style type="text/css">
 		.left_item{
 			width: 300px;
-			height: 300px;
+			height: 100px;
+			background-color: green;
+		}
+		#right{
+			width: 300px;
+			height: 100px;
 			background-color: green;
 		}
 	</style>
 </head>
 <body>
-	<div class="left_item" title="./contact/newcontact.php">2334432432</div>
+	<div class="left_item" id="right1" title="./contact/newcontact.php">2334432432</div>
 	<div id="right">
 		11111111111111111111111111111
 	</div>

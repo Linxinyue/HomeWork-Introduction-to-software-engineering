@@ -13,7 +13,7 @@
 		<input class="button" type="button" value="submit" />
 	</div>
 	<!-- /////////////////////////////////// -->
-	<div class="book">
+	<!-- <div class="book">
 		<div class="tools">
 			<div class="setting">
 				<img class="setting" src="./img/gear.png">
@@ -35,7 +35,7 @@
 			<div class="contenttitle"> yong1</div>
 		</div>
 		
-	</div>
+	</div> -->
 
 	<?php 
 		session_start();

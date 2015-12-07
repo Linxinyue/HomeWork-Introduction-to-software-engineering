@@ -76,7 +76,7 @@
 				<div class="left_item" id='today' 
 					onmouseover="todo_selected('today')" 
 					onmouseout="todo_unselected('today')">
-					<div class="left_lock" title="./lock/alllock.php">
+					<div class="left_lock" title="./lock/baselock.php">
 						全部密码
 					</div>
 				</div>

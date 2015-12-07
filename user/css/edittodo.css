@@ -1,0 +1,67 @@
+.back{
+	color:#7C92A6;
+	border-bottom: 2px solid #E5E5E5;
+	padding-bottom: 15px;
+}
+#date_picker_demo{
+	padding-left: 10px;
+	width: 70px;
+	height: 25px;
+	margin-top:15px; 
+	border: 0px;
+	color:#90BEE8;
+}
+.timeproject{
+	color:#90BEE8;
+}
+.isdone{
+	float: left;
+	margin-top: 7px;
+	width: 15px;
+	height: 15px;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	overflow: hidden;
+}
+.doneimage{
+	margin-bottom: 6px;
+}
+.todo{
+	margin-left: 10px;
+	margin-top: 30px;
+}
+.todotitle{
+	float: left;
+	margin-left: 10px;
+	margin-top: 3px;
+	font-weight : bold;
+}
+.inputtitle{
+	font-size: 17pt;
+	font-weight : bold;
+	padding-left: 10px;
+	border: 0px;
+	outline: none;
+}
+.desc{
+	clear: both;
+	float: left;
+	margin-top: 30px;
+	margin-left: 30px;
+	color: #444444;
+}
+.inputdesc{
+	width: 300px;
+	height: 100px;
+	resize: none;
+	border:0px;
+	outline: none;
+}
+.buttonsubmmit{
+	border-radius: 3px;
+	width: 80px;
+	height: 40px;
+	margin-left: 7px;
+	background-color: #6674F5;
+	border: 0px;
+}
