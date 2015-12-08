@@ -1,4 +1,4 @@
-var hi=innerHeight-105;
+var hi=innerHeight-60;
 function todo_selected(selecetedid) {
 	document.getElementById(selecetedid).style.background='#BACAC1';
 }

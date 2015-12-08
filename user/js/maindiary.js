@@ -7,9 +7,6 @@ function todo_unselected(selecetedid) {
 }
 
 $(document).ready(function(){ 
-	$.get("./day/editbook.php",function(data){ //初始將a.html include div#iframe
-		$("#right").html(data);
-	});
 	$(function(){
 		$('.left_item').click(function() {
 			// 找出 li 中的超链接 href(#id)

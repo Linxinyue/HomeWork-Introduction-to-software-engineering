@@ -7,7 +7,6 @@
 	<title>ToDo</title>
 	<link rel="stylesheet" type="text/css" href="./css/maindiary.css" />
 	<style type="text/css">
-		
 	</style>
 	<script type="text/javascript" src="./js/maindiary.js"></script>
 </head>
@@ -46,8 +45,11 @@
 					$mysqli->query("set names 'utf8'");
 					$query="SELECT * FROM `diarybook` WHERE `userid` = '$name'";
 					$results=$mysqli->query($query);
+					$account="";
 					while ($row = $results->fetch_array()) {
-						$account=$row[0];
+						if($account==""){
+							$account=$row[0];
+						}
 						// require('singlelock.php');
 						echo "<div class='left_item' id='".$row[0]."' 
 					onmouseover=\"todo_selected('".$row[0]."')\" 
@@ -79,6 +81,12 @@
 			
 		</div>
 		<script type="text/javascript">
+		$(function(){
+			$.get("./day/diary.php?title=<?php echo $account;?>",function(data){ //初始將a.html include div#iframe
+				$("#right").html(data);
+			});
+		});
+		
 			document.getElementById('left').style.maxHeight=hi+"px";
 			document.getElementById('left').style.height=hi+"px";
 		</script>

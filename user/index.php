@@ -15,7 +15,7 @@
 			<div class="left_title">收集</div>
 				<div class="left_item" id='basket' 
 					onmouseover="todo_selected('basket')" 
-					onmouseout="todo_unselected('basket')" title="./todo/todo.php">收集箱</div>
+					onmouseout="todo_unselected('basket')" title="./todo/todo.php?select=basket">收集箱</div>
 			<div class="left_title" id="focus" 
 					onmouseover="todo_selected('focus')" 
 					onmouseout="todo_unselected('focus')">聚焦</div>
@@ -43,19 +43,36 @@
 			<div class="left_title2" id='all_project' 
 					onmouseover="todo_selected('all_project')" 
 					onmouseout="todo_unselected('all_project')">所有项目</div>
+
 			<div id='projects'>
-				<div class="left_item" id='task1' 
-					onmouseover="todo_selected('task1')" 
-					onmouseout="todo_unselected('task1')" title="./todo/todo.php">项目一</div>
-				<div class="left_item" id='task2' 
-					onmouseover="todo_selected('task2')" 
-					onmouseout="todo_unselected('task2')" title="./todo/todo.php">项目一</div>
-				<div class="left_item" id='task3' 
-					onmouseover="todo_selected('task3')" 
-					onmouseout="todo_unselected('task3')" title="./todo/todo.php">项目一</div>
-				<div class="left_item" id='task4' 
-					onmouseover="todo_selected('task4')" 
-					onmouseout="todo_unselected('task4')" title="./todo/todo.php">项目一</div>
+				<?php 
+					// session_start();
+					if(isset($_SESSION['user'])){
+						$name=$_SESSION['user'];
+					}
+					$mysqli = new mysqli('127.0.0.1', 'root', '', 'my_db');
+					if(mysqli_connect_errno()){
+						echo mysqli_connect_error();
+					}
+
+					$mysqli = mysqli_init();
+					$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
+					$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
+					$mysqli->query("set names 'utf8'");
+					$query="SELECT * FROM `todoproject` WHERE `userid` = '$name'";
+					$results=$mysqli->query($query);
+					$counter=0;
+					while ($row = $results->fetch_array()) {
+						echo "<div class='left_item' id='task".$counter."' 
+							onmouseover=\"todo_selected('task".$counter."')\" 
+							onmouseout=\"todo_unselected('task".$counter."')\" 
+							title='./todo/todo.php".$row[2]."'>".$row[2]."</div>";
+						$counter+=1;
+					}
+				?>	
+				<div class='left_item' id='newproject' 
+					onmouseover="todo_selected('newproject')" 
+					onmouseout="todo_unselected('newproject')" title='./todo/todo.php'>新建</div>
 			</div>
 			<div class="left_title2" id='finnash' 
 					onmouseover="todo_selected('finnash')" 

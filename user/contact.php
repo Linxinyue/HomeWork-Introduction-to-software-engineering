@@ -3,7 +3,7 @@
 <head>
 	<?php include('header.php');?>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
-	<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/contact.css" />
 	<script type="text/javascript" src="./js/contact.js"></script>
 	<title>ToDo</title>
@@ -20,7 +20,6 @@
 			if(mysqli_connect_errno()){
 				echo mysqli_connect_error();
 			}
-
 			$mysqli = mysqli_init();
 			$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
 			$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
@@ -28,8 +27,11 @@
 			$query="SELECT * FROM `contact` WHERE `userid` = '$name'";
 			$results=$mysqli->query($query);
 			$contactount=0;
+			$account="";
 			while ($row = $results->fetch_array()) {
-				// require('singlelock.php');
+				if($account==""){
+					$account=$row[2];
+				}
 				echo "<div class='left_item' id='contact".$contactount."' 
 					onmouseover=\"todo_selected('contact".$contactount."')\" 
 					onmouseout=\"todo_unselected('contact".$contactount."')\">
@@ -52,8 +54,14 @@
 			
 		</div>
 		<script type="text/javascript">
+			
 			document.getElementById('left').style.maxHeight=hi+"px";
 			document.getElementById('left').style.height=hi+"px";
+			$(function(){
+				$.get("./contact/singlecontact.php?contactname=<?php echo $account;?>",function(data){ //初始將a.html include div#iframe
+			　　　　$("#right").html(data);
+		　　　　});
+			});
 		</script>
 	</div>
 </body>

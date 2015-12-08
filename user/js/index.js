@@ -17,7 +17,7 @@ $(function(){
 		$("#focuses").slideToggle("slow");
 	});
 	/////////////////////////////////
-	$.get("./todo/todo.php",function(data){ //初始將a.html include div#iframe
+	$.get("./todo/todo.php?select=basket",function(data){ //初始將a.html include div#iframe
 　　　　$("#right").html(data);
 　　});
 　　$('.left_item').click(function() {

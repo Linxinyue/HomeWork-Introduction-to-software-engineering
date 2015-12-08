@@ -12,6 +12,7 @@ a{
 	background-color: #FAFAFA;
 	overflow: auto;
 	border-right: 1px solid #E5E5E5;
+	overflow-x:hidden;
 }
 .right{
 	float: left;
@@ -29,6 +30,7 @@ a{
 	padding-bottom: 5px;
 	padding-left: 45px;
 	font-size: 12pt;
+	cursor:pointer;
 }
 .left_title2{
 	padding-left: 15px;
@@ -36,4 +38,7 @@ a{
 	padding-bottom: 10px;
 	font-size: 11pt;
 	color: #87888A;
+}
+#newproject{
+	color: #00FF00;
 }
