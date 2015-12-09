@@ -1,0 +1,42 @@
+.projectdiv{
+	width: 1000px;
+	height: 200px;
+	padding-left: 20px;
+	border-bottom: 1px solid #ECECEC;
+}
+.projectcontent{
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.inputprojectdesc{
+	width: 500px;
+	height: 70px;
+	resize: none;
+	border: 0px;
+	font-family: yehei;
+	color: #5e5e5e;
+	outline: none;
+}
+.projecttools{
+	float: right;
+	margin-top: 10px;
+	margin-right: 200px;
+}
+.protool{
+	width: 70px;
+	height: 40px;
+	border: 0px;
+	font-size: 12pt;
+	color: #FF2626;
+	background-color: #ffffff;
+	font-family: yehei;
+	outline: none;
+	cursor:pointer;
+}
+.inputprotitle{
+	font-family: yahei;
+	height: 40px;
+	font-size: 20pt;
+	border: none;
+	outline: none;
+}

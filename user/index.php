@@ -22,22 +22,22 @@
 			<div id='focuses'>
 				<div class="left_item" id='outdate' 
 					onmouseover="todo_selected('outdate')" 
-					onmouseout="todo_unselected('outdate')" title="./todo/todo.php">已过期</div>
+					onmouseout="todo_unselected('outdate')" title="./todo/todo.php?select=past">已过期</div>
 				<div class="left_item" id='today' 
 					onmouseover="todo_selected('today')" 
-					onmouseout="todo_unselected('today')" title="./todo/todo.php">今日</div>
+					onmouseout="todo_unselected('today')" title="./todo/todo.php?select=today">今日</div>
 				<div class="left_item" id='torrow' 
 					onmouseover="todo_selected('torrow')" 
-					onmouseout="todo_unselected('torrow')" title="./todo/todo.php">明天</div>
+					onmouseout="todo_unselected('torrow')" title="./todo/todo.php?select=tomorrow">明天</div>
 				<div class="left_item" id='week' 
 					onmouseover="todo_selected('week')" 
-					onmouseout="todo_unselected('week')" title="./todo/todo.php">本周</div>
-				<div class="left_item" id='schedule' 
+					onmouseout="todo_unselected('week')" title="./todo/todo.php?select=thisweek">本周</div>
+				<!-- <div class="left_item" id='schedule' 
 					onmouseover="todo_selected('schedule')" 
-					onmouseout="todo_unselected('schedule')" title="./todo/todo.php">日程</div>
+					onmouseout="todo_unselected('schedule')" title="./todo/todo.php?select=time">日程</div> -->
 				<div class="left_item" id='further' 
 					onmouseover="todo_selected('further')" 
-					onmouseout="todo_unselected('further')" title="./todo/todo.php">未来</div>
+					onmouseout="todo_unselected('further')" title="./todo/todo.php?select=further">未来</div>
 			</div>
 				
 			<div class="left_title2" id='all_project' 
@@ -66,7 +66,7 @@
 						echo "<div class='left_item' id='task".$counter."' 
 							onmouseover=\"todo_selected('task".$counter."')\" 
 							onmouseout=\"todo_unselected('task".$counter."')\" 
-							title='./todo/todo.php".$row[2]."'>".$row[2]."</div>";
+							title='./todo/projecttodo.php?protitle=".$row[2]."'>".$row[2]."</div>";
 						$counter+=1;
 					}
 				?>	
@@ -80,10 +80,10 @@
 			<div id='finnashes'>
 				<div class="left_item" id='finished' 
 					onmouseover="todo_selected('finished')" 
-					onmouseout="todo_unselected('finished')" title="./todo/todo.php">已完成</div>
+					onmouseout="todo_unselected('finished')" title="./todo/donetodo.php">已完成</div>
 				<div class="left_item" id='deleted' 
 					onmouseover="todo_selected('deleted')" 
-					onmouseout="todo_unselected('deleted')" title="./todo/todo.php">垃圾箱</div>
+					onmouseout="todo_unselected('deleted')" title="./todo/deltodo.php">垃圾箱</div>
 			</div>
 				
 		</div>

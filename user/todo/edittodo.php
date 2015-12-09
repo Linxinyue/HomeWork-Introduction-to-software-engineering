@@ -51,8 +51,12 @@
 			$project="请选择项目";
 		}
 	?>
+	<script type="text/javascript">
+		var select="<?php echo $select; ?>";
+		var title="<?php echo $row[2]; ?>";
+	</script>
 	<div id="mainedit">
-		<div class="back"  title="./todo/todo.php?select=<?php echo $select; ?>">
+		<div class="back" onclick="back()">
 			< 返回 
 		</div>
 		<div class="timeproject">
@@ -79,17 +83,17 @@
 					<div class='projectls'>请选择项目</div>
 				</div>
 			</div>
-			<?php echo $row[5]?>
+			
 		</div>
 		<div class="todo">
-			<div class="isdone" >
-				<img src="./img/done.jpg" class="doneimage" id="doneimage"/>
+			<div class="isdone" onclick="editdone()">
+				<img src="./img/done.jpg" class="editdoneimage" id="editdoneimage"/>
 			</div>
-			<div class="todotitle"><input type="text" class="inputtitle" value="<?php echo $row[2]; ?>" /></div>
-			<div class="desc"><textarea class="inputdesc"><?php echo $row[3]; ?></textarea></div>
+			<div class="todotitle"><input type="text" class="inputtitle" id="inputtitle" value="<?php echo $row[2]; ?>" /></div>
+			<div class="desc"><textarea class="inputdesc" id="inputdesc" placeholder="描述"><?php echo $row[3]; ?></textarea></div>
 			<div class="tools">
-				<input type="button" class="buttonsub" value="确认" />
-				<input type="button" class="buttondel" value="删除" />
+				<input type="button" class="buttonsub" value="确认" onclick="save()" />
+				<input type="button" class="buttondel" value="删除" onclick="deletetodo()"/>
 			</div>
 		</div> 
 	</div>

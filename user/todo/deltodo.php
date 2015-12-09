@@ -6,23 +6,12 @@
 </head>
 <body>
 	<div id="maindiv">
-		<input type="text" class="inputtodo" id="inputtodo" onkeydown="keyDown(event)" />
-		<input type="button" class="submitbutton" value="添加" onclick="addtodo()" />
-
-
 		<div id="contentdiv">
 			<?php 
 				session_start();
 				if(isset($_SESSION['user'])){
 					$name=$_SESSION['user'];
 				}
-				if(isset($_GET['select'])){
-					$select=$_GET['select'];
-				}else{
-					$select=" ";
-				}
-				// echo "<script>alert('".$select."');</script>";
-				$time=date('y-m-d',time());
 				$mysqli = new mysqli('127.0.0.1', 'root', '', 'my_db');
 				if(mysqli_connect_errno()){
 					echo mysqli_connect_error();
@@ -31,23 +20,7 @@
 				$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
 				$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
 				$mysqli->query("set names 'utf8'");
-				if($select=="basket"){
-					$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `project` = '' and `isdone` = '0' and `isdel` = '0'";
-				}elseif($select=="past") {
-					$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `isdone` = '0' and `isdel` = '0' and `tododate` < '$time'";//$time
-				}elseif($select=="today") {
-					$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `isdone` = '0' and `isdel` = '0' and `tododate` = '$time'";//$time
-				}elseif($select=="tomorrow") {
-					$time=date('y-m-d',time()+86400);
-					$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `isdone` = '0' and `isdel` = '0' and `tododate` = '$time'";//$time
-				}elseif($select=="thisweek") {
-					$time1=date('y-m-d',time()-86400);
-					$time2=date('y-m-d',time()+86400*7);
-					$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `isdone` = '0' and `isdel` = '0' and `tododate` < '$time2' and `tododate` > '$time1'";//$time
-				}elseif($select=="further") {
-					$time=date('y-m-d',time()+86400*7);
-					$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `isdone` = '0' and `isdel` = '0' and `tododate` > '$time'";//$time
-				}
+				$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `isdel` = '1'";
 				$results=$mysqli->query($query);
 				$contactount=0;
 				while ($row = $results->fetch_array()) {
@@ -59,13 +32,14 @@
 						$time="";
 					}
 					echo "<div class='singletodo' id='singleallold".$contactount."'>
-						<div class='isdone' onclick=\"done('singleallold".$contactount."','doneoldimgage".$contactount."','title".$contactount."')\">
+						<div class='delisdone' >
 							<img src='./img/done.jpg' class='doneimage' id='doneoldimgage".$contactount."'/>
 						</div>
-						<div class='todoall' onclick=\"replacediv('./todo/edittodo.php?title=".$row[2]."&select=".$select."')\">
+						<div class='deltodoall'>
 							<div class='title' id='title".$contactount."'>".$row[2]."</div>
 							<div class='content'>".$row[3]."</div>
 							<div class='project'>".$row[5]."</div>
+							<div class='backs' onclick=\"undel('singleallold".$contactount."','doneoldimgage".$contactount."','title".$contactount."')\">还原</div>
 							<div class='date'>".$time."</div>
 						</div>
 					</div>";
