@@ -1,31 +1,56 @@
 var globleobj;
-function showpasswd (obj) {
-	//alert("wr");
-	if (document.getElementById(obj+'password').type=="text") {
-		document.getElementById(obj+'password').type="password";
+function showpasswd (target) {
+	if (document.getElementById(target+'passwd').type=="text") {
+		document.getElementById(target+'passwd').type="password";
 	} else{
-		document.getElementById(obj+'password').type="text";
+		document.getElementById(target+'passwd').type="text";
 	};
 }
-function showsecpasswd (obj) {
-	if (document.getElementById(obj+'secpassword').type=="text") {
-		document.getElementById(obj+'secpassword').type="password";
+function showsecpasswd (target) {
+	if (document.getElementById(target+'secwd').type=="text") {
+		document.getElementById(target+'secwd').type="password";
 	} else{
-		document.getElementById(obj+'secpassword').type="text";
+		document.getElementById(target+'secwd').type="text";
 	};
 }
-function change (obj) {
-	globleobj=obj
-	document.getElementById('changename').value=document.getElementById(obj+'name').innerHTML;
-	document.getElementById('changepasswd').value=document.getElementById(obj+'password').value;
-	document.getElementById('changeaddress').innerHTML=document.getElementById(obj+'address').innerHTML;
-	if(document.getElementById(obj+"sec").title!="none"){
-		//code here
-		document.getElementById('changesecname').value=document.getElementById(obj+'secname').innerHTML;
-		document.getElementById('changesecpasswd').value=document.getElementById(obj+'secpassword').value;
-	}
-	$("#changdiv").slideToggle();
-	$("#newdiv").hide();
+
+function changecancel() {
+	$(function(){
+		$("#changelock").animate({
+	     	 top:'700px',
+	     	 opacity:'0.2'
+	    });
+	});
+}
+function change (target,address) {
+	$(function(){
+		$("#changelock").show();
+		$("#changelock").animate({
+	      top:'120px',
+	      opacity:'1'
+	    });
+	});
+	// alert($("#"+target+"name")[0].value);
+	// alert($("#"+target+"passwd")[0].value);
+	// alert($("#"+target+"secname")[0].value);
+	// alert($("#"+target+"secwd")[0].value);
+	// alert($("#"+target+"address").text());
+	$("#changename")[0].value=$("#"+target+"name")[0].value;
+	$("#changepasswd")[0].value=$("#"+target+"passwd")[0].value;
+	$("#changesecname")[0].value=$("#"+target+"secname")[0].value;
+	$("#changesecwd")[0].value=$("#"+target+"secwd")[0].value;
+	$("#changeaddress")[0].value=$("#"+target+"address").text();
+	// globleobj=obj
+	// document.getElementById('changename').value=document.getElementById(obj+'name').innerHTML;
+	// document.getElementById('changepasswd').value=document.getElementById(obj+'password').value;
+	// document.getElementById('changeaddress').innerHTML=document.getElementById(obj+'address').innerHTML;
+	// if(document.getElementById(obj+"sec").title!="none"){
+	// 	//code here
+	// 	document.getElementById('changesecname').value=document.getElementById(obj+'secname').innerHTML;
+	// 	document.getElementById('changesecpasswd').value=document.getElementById(obj+'secpassword').value;
+	// }
+	// $("#changdiv").slideToggle();
+	// $("#newdiv").hide();
 
 }
 function cancle () {
@@ -83,9 +108,7 @@ function save () {
 function addsec() {
 	document.getElementById("newplusdiv").style.display="none";
 }
-function deleteuser(obj) {
-	$("#"+obj+"div").fadeOut();
-	//后台执行删除操作
-	var address=document.getElementById(obj+'address').innerHTML;
+function deleteuser(target,address) {
+	$("#"+target).fadeOut();
 	ajaxContact('delete',address,'accountname','accountpassword','accountsecname','accountsecpasswd');
 }

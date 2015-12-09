@@ -4,16 +4,7 @@ body{
     /*filter: grayscale(1);  W3C  */
 }
 
-#changdiv{
-	display: none;
-	position: fixed;
-	color: #5542D1;
-	margin-left: 300px;
-	height: 140px;
-	width: 600px;
-	background-color: white;
-	box-shadow:2px 2px 10px #909090;
-}
+
 #newdiv{
 	display: none;
 	position: absolute;
@@ -66,17 +57,7 @@ body{
 }
 
 
-#changesecname,#changename,#changesecpasswd,#changepasswd{
-	width: 150px;
-	height: 25px;
-	border: 1px solid #5542D1;
-	color: #5542D1;
-}
 
-#changeaddress{
-	color: #5542D1;
-	float: left;
-}
 #newsecname,#newname,#newsecpasswd,#newpasswd{
 	width: 150px;
 	height: 25px;
@@ -88,80 +69,6 @@ body{
 	color: #5542D1;
 	height: 15px;
 	border: 1px solid #5542D1;
-}
-.newaddress{
-}
-
-/*******************/
-
-.accountshow{
-	width: 310px;
-	height: 140px;
-	/*float: left;*/
-	/*border-radius: 10px;*/
-	box-shadow:2px 2px 10px #909090;
-	color: #5542D1;
-	margin-left: 260px;
-	margin-top: 30px;
-	background-color: #EBEBE4;
-
-}
-
-.picbutton{
-	overflow: hidden;
-	float: right;
-	width: 30px;
-}
-
-.changeimg{
-	width: 30px;
-	height: 30px;
-}
-.deletediv{
-	margin-left: 5px;
-	margin-top: 5px;
-}
-.delete{
-	width: 20px;
-	height: 20px;
-}
-.accountboth{
-	font-size: 16pt;
-	margin-left: 30px;
-	margin-top: 30px;
-	float: left;
-	line-height: 40px;
-}
-.username{
-	float: left;
-}
-.password{
-	width: 150px;
-	height: 25px;
-	border: 0;
-	color: #5542D1;
-}
-.accountpwd{
-	clear: both;
-}
-.showpassword{
-	margin-top: 9px;
-	float: right;
-}
-.showpasswordimg{
-	width: 30px;
-	height: 27px;
-}
-
-.accountsceshow{
-	margin-left: 260px;
-	margin-top: 30px;
-	color: #5542D1;
-	height: 140px;
-	width: 640px;
-	background-color: #EBEBE4;
-	box-shadow:2px 2px 10px #909090;
-
 }
 
 
@@ -181,9 +88,123 @@ body{
 	height: 100px;
 	opacity:0.3; 
 }
+
+
+/*单个lock的属性*/
+.maindiv{
+	padding-top: 40px;
+}
+.lockboth{
+	width: 600px;
+	height: 170px;
+	margin-left: 80px;
+	margin-top: 30px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	border-bottom: 1px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
+}
+.sublock{
+	float: left;
+	width: 270px;
+	height: 150px;
+}
+#baselock{
+	border-right: 1px solid #eaeaea;
+	margin-right: 20px;
+}
+.lockdesc{
+	width: 200px;
+	border-bottom: 1px solid #efefef;
+	padding-bottom: 5px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	font-size: 10pt;
+	color: #acacac;
+}
+.sublocks{
+	height: 50px;
+	margin-left: 10px;
+	line-height: 50px;
+	font-size: 11pt;
+}
+.sublockdesc{
+	float: left;
+	width: 50px;
+	text-align: right;
+	font-family: yahei;
+	margin-right: 5px;
+}
+.inputlock{
+	width: 150px;
+	font-size: 11pt;
+	font-family: yahei;
+	background-color: #ffffff;
+	border: none;
+	outline: none;
+}
+.tools{
+	float: left;
+	width: 30px;
+}
+.tool{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 11pt;
+	font-family: yahei;
+	cursor: pointer;
+}
+#mi{
+	background-color: #DAFFA8;
+}
+#ba{
+	background-color: #C6FF7A;
+}
+#xu{
+	background-color: #ACFF3F;
+}
+#sh{
+	background-color: #91FF00;
+	color: red;
+}
 .address{
-	position: absolute;
-	height: 20px;
-	overflow: hidden;
+	float: left;
+	margin-left: 10px;
+	color: #737373;
+	clear: both;
 }
 
+/*///修改页面的属性////*/
+
+.changelock{
+	width: 300px;
+	height: 400px;
+	padding-top: 40px;
+	padding-left: 20px;
+	position: absolute;
+	top: 400px;
+	left: 500px;
+	background-color: #ffffff;
+	box-shadow:2px 2px 10px #909090;
+	opacity:0.2;
+	display: none;
+}
+#subchangelock{
+	margin-top: 20px;
+}
+.changetools{
+	clear: both;
+}
+.changetool{
+	float: right;
+	margin-top: 15px;
+	margin-right: 20px;
+	color: #3FA8E9;
+	font-size: 11pt;
+	font-family: yahei;
+	cursor: pointer;
+}
+#changesave{
+	color: red;
+}
