@@ -26,6 +26,12 @@ function back(){
 		$("#mainedit").html(data); 
 　　});
 }
+function backpro(){
+	var url="./todo/projecttodo.php?protitle="+protitle;
+	$.get(url,function(data){
+		$("#mainedit").html(data); 
+　　});
+}
 
 // $('.back').click(function() {
 // 　　　  var $this = $(this);

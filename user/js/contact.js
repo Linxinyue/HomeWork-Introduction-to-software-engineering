@@ -1,9 +1,9 @@
 var hi=innerHeight-60;
 function todo_selected(selecetedid) {
-	document.getElementById(selecetedid).style.background='#BACAC1';
+	document.getElementById(selecetedid).style.background='#F1F1F1';
 }
 function todo_unselected(selecetedid) {
-	document.getElementById(selecetedid).style.background='#DCE5E3';
+	document.getElementById(selecetedid).style.background='#FAFAFA';
 }
 $(document).ready(function(){ 
 　　$.get("./contact/newcontact.php",function(data){ //初始將a.html include div#iframe

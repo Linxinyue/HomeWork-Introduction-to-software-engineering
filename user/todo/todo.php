@@ -49,6 +49,8 @@
 					$query="SELECT * FROM `todo` WHERE `userid` = '$name' and `isdone` = '0' and `isdel` = '0' and `tododate` > '$time'";//$time
 				}
 				$results=$mysqli->query($query);
+				// $number=mysqli_num_rows($results);
+				// echo "<script>alert(".$number.");</script>";
 				$contactount=0;
 				while ($row = $results->fetch_array()) {
 					$time=$row[4];

@@ -80,7 +80,7 @@
 			<a href="./contact.php">
 				<div class="top_button"
 				id='people' onmouseover="selected('people')" onmouseout="unselected('people')">
-				<div class='inner_top'>人脉</div>
+				<div class='inner_top'>联系人</div>
 				</div>
 			</a>
 			<a href="./daliy.php">

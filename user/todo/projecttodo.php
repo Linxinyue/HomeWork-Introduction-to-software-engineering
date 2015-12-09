@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/projecttodo.css">
 	<link rel="stylesheet" type="text/css" href="./css/yahei.css">
 	<script type="text/javascript" src="./js/todo.js"></script>
+	<script type="text/javascript" src="./js/protodo.js"></script>
 </head>
 <body>
 	<div id="maindiv">
@@ -30,16 +31,17 @@
 			$resultspro=$mysqlipro->query($querypro);
 			$rowpro = $resultspro->fetch_array();
 		?>
-		<script type="text/javascript"> var protitle="<?php echo $protitle ?>";</script>
+		<script type="text/javascript"> var protitle="<?php echo $protitle; ?>";</script>
 		<div class="projectdiv">
 			<div class="projecttitle">
-				<input class="inputprotitle" type="text" value="<?php echo $protitle ?>" />
+				<input class="inputprotitle" id="inputprotitle" type="text" placeholder="标题" value="<?php if($protitle!="new"){echo $protitle;} ?>" />
 			</div>
 			<div class="projectcontent">
-				<textarea class="inputprojectdesc" placeholder="描述"><?php echo $rowpro[3] ?></textarea>
+				<textarea class="inputprojectdesc" id="inputprojectdesc" placeholder="描述"><?php echo $rowpro[3] ?></textarea>
 			</div>
 			<div class="projecttools">
-				<input class="protool" type="button" value="删除" />
+				<input class="protool" id="newpro" type="button" onclick="newproject()" value="确认" />
+				<input class="protool" onclick="delproject()"  type="button" value="删除" />
 			</div>
 		</div>
 		<div id="contentdiv" class="cont">
@@ -69,7 +71,7 @@
 						<div class='isdone' onclick=\"done('singleallold".$contactount."','doneoldimgage".$contactount."','title".$contactount."')\">
 							<img src='./img/done.jpg' class='doneimage' id='doneoldimgage".$contactount."'/>
 						</div>
-						<div class='todoall' >
+						<div class='todoall' onclick=\"replacedivpro('./todo/edittodopro.php?title=".$row[2]."&protitle=".$protitle."')\">
 							<div class='title' id='title".$contactount."'>".$row[2]."</div>
 							<div class='content'>".$row[3]."</div>
 							<div class='project'>".$row[5]."</div>

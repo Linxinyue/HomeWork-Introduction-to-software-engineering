@@ -72,7 +72,7 @@
 				?>	
 				<div class='left_item' id='newproject' 
 					onmouseover="todo_selected('newproject')" 
-					onmouseout="todo_unselected('newproject')" title='./todo/todo.php'>新建</div>
+					onmouseout="todo_unselected('newproject')" title='./todo/projecttodo.php?protitle=new'>新建</div>
 			</div>
 			<div class="left_title2" id='finnash' 
 					onmouseover="todo_selected('finnash')" 

@@ -1,5 +1,4 @@
 <?php
-	echo "正在保存...";
 	$name=$_POST["name"];
 	$realname=$_POST["realname"];
 	$birthday=$_POST["birthday"];

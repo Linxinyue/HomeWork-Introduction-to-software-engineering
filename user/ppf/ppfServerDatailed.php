@@ -1,5 +1,4 @@
 <?php
-	echo "正在保存...";
 	$name=$_POST["name"];
 	$figure=$_POST["figure"];
 	$marriage=$_POST["marriage"];

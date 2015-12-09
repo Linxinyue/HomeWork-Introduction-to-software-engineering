@@ -4,6 +4,9 @@
 	float: left;
 	/*background-color: #cccccc;	*/
 	font-family: yahei;
+	/*height: 400px;
+	overflow-y:auto;
+	overflow-x:hidden; */
 }
 
 .photo{
@@ -73,11 +76,13 @@
 	float: right;
 	margin-right: 20px;
 	color: #3FA8E9;
+	cursor: pointer;
 }
 .deletecontact{
 	float: right;
 	color: red;
 	margin-right: 20px;
+	cursor: pointer;
 }
 .inputname{
 	height: 35px;

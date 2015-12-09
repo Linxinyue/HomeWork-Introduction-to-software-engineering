@@ -46,6 +46,11 @@ function replacediv(url) {
 	　　$("#maindiv").html(data); 
 　　});
 }
+function replacedivpro(url) {
+	$.get(url,function(data){
+	　　$("#maindiv").html(data); 
+　　});
+}
 
 function ajaxContact(option,title,newtitle,content,tododate,project,isdone,isdele){
 	$.post("./todo/edittodoserver.php",

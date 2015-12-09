@@ -23,8 +23,8 @@
 		$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
 		$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
 		$mysqli->query("set names 'utf8'");
-		
-		$query="UPDATE `todo` SET `title`='$newtitle',`content`='$content' ,`tododate`='$tododate' ,`project`='$project' WHERE userid='$name' and title = '$title' ";
+		$idname=$name.$newtitle;
+		$query="UPDATE `todo` SET `idname`='$idname',`title`='$newtitle',`content`='$content' ,`tododate`='$tododate' ,`project`='$project' WHERE userid='$name' and title = '$title' ";
 
 	
 		$results=$mysqli->query($query);
