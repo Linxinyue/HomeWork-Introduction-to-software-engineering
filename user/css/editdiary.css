@@ -53,25 +53,20 @@ input::-webkit-input-placeholder{
 	top:200px;
 	line-height: 40px;
 	text-align: center;
+	cursor: pointer;
 }
 .change{
-	margin-top: 10px;
-	background-color: #F27EE6;
-	border-radius: 20px;
+	background-color: #87C4FF;
 	width: 40px;
 	height: 40px;
 }
 .delete{
-	margin-top: 10px;
-	background-color: #8A7EF3;
-	border-radius: 20px;
+	background-color: #50A8FF;
 	width: 40px;
 	height: 40px;
 }
 .save{
-	margin-top: 10px;
-	background-color: #ADF37E;
-	border-radius: 20px;
+	background-color: #0080FF;
 	width: 40px;
 	height: 40px;
 }

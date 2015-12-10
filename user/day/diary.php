@@ -6,6 +6,12 @@
 	<script type="text/javascript" src="./js/daliy.js"></script>
 </head>
 <body>
+<?php 
+	session_start();
+	if(isset($_SESSION['user'])){
+		$name=$_SESSION['user'];
+	}
+?>
 <div class="diarys">
 	<!-- <div class="arcitle" onclick="gotoeditdiary()">
 		<div class="diarytitle">
@@ -13,21 +19,14 @@
 		</div>
 		<div class="diarycontent" >
 			二月七日惊蛰
-			你来了，我来了！你不该来，可我还是来了，
+			你来了，我来了！，
 			落日，荒漠，客栈...
 		</div>
 		<div class="diarycreattime">
-			2015年11月27日08:17:56
-		</div>
-		<div class="diarymodtime">
-			2015年11月27日08:18:08
+			2015-11-27
 		</div>
 	</div> -->
 	<?php 
-		session_start();
-		if(isset($_SESSION['user'])){
-			$name=$_SESSION['user'];
-		}
 		if(isset($_GET['title'])){
 			$title=$_GET['title'];
 		}else{
@@ -57,10 +56,7 @@
 				".substr($row[1],0,40)."...
 			</div>
 			<div class='diarycreattime'>
-				创建日期：".$row[2]."
-			</div>
-			<div class='diarymodtime'>
-				最近修改：".$row[3]."
+				".$row[2]."
 			</div>
 		</div>";
 		}
@@ -68,8 +64,11 @@
 	<script type="text/javascript">
 		var booktitle="<?php echo $title; ?>";
 	</script>
-	<div class="plusdiv" onclick="gotonewdiary()">
+	<!-- <div class="plusdiv" onclick="gotonewdiary()">
 		<img class="plus" src="./img/plus.png" />
+	</div> -->
+	<div class="arcitle" id="newdiary" onclick="gotonewdiary()">
+		添加
 	</div>
 </div>
 	

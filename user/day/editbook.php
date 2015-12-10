@@ -1,40 +1,36 @@
 <link rel="stylesheet" type="text/css" href="./css/editbook.css" />
+<link rel="stylesheet" type="text/css" href="./css/yahei.css" />
 <script type="text/javascript" src="./js/editbook.js"></script>
 
-<div class="books">
-	<div class="newdiarybook" onclick="newbook()">
-			新
-	</div>
-
+<div class="books" id="maindiv">
 	<div class="newdiv" id="newbookdiv">
-		<input type="text" placeholder ="title" id="newbooktitle"/> 
-		<textarea id="newbookdesc" placeholder ="content"></textarea>
-		<input class="button" type="button" value="submit" />
-		<input class="button" type="button" value="submit" />
+		<input type="text" placeholder ="标题" id="newbooktitle"/> 
+		<textarea id="newbookdesc" placeholder ="描述" id="newbookdesc"></textarea>
+		<div class="changetools">
+			<div class="changetool" onclick="changecancel()">取消</div>
+			<div class="changetool" id="changesave" onclick="changesave()">确认</div>
+		</div>
 	</div>
 	<!-- /////////////////////////////////// -->
 	<!-- <div class="book">
-		<div class="tools">
-			<div class="setting">
-				<img class="setting" src="./img/gear.png">
-			</div>
-			<div class="delete" onclick="deletebook('lost dream')">
-				<img class="delete" src="./img/delete.png">
-			</div>
-		</div>
 		<div class="bookinfo">
 			<div class="title">lost dream</div>
 			<div class="description">I lost my dream, so I can't sleep now</div>
 			<div class="timediv">2015-9-9</div>
-			<div class="timediv">2016-9-9</div>
 		</div>
 		<div class="contentinfo">
 			<div class="contenttitle"> yong1</div>
 			<div class="contenttitle"> yong1</div>
 			<div class="contenttitle"> yong1</div>
-			<div class="contenttitle"> yong1</div>
 		</div>
-		
+		<div class="tools">
+			<div class="setting">
+				修
+			</div>
+			<div class="delete" onclick="deletebook('lost dream')">
+				删
+			</div>
+		</div>
 	</div> -->
 
 	<?php 
@@ -61,41 +57,36 @@
 
 		$query="SELECT * FROM `diarybook` WHERE `userid` = '$name'";
 		$results=$mysqli->query($query);
+		$mycounter=0;
 		while ($row = $results->fetch_array()) {
 			$account=$row[0];
 			echo "<div class='book'>
-			<div class='tools'>
-				<div class='setting'>
-					<img class='setting' src='./img/gear.png'>
+				<div class='bookinfo'>
+					<div class='title' id='title".$mycounter."'>".$row[0]."</div>
+					<div class='description' id='desc".$mycounter."'>".$row[1]."</div>
+					<div class='timediv'>".$row[2]."</div>
+				</div>
+				<div class='contentinfo'>";
+				$queryd="SELECT * FROM `diary` WHERE `userid` = '$name' and `booktitle` = '$account'";
+				$resultsd=$mysqlid->query($queryd);
+				$countdiary=1;
+				while ($rowd = $resultsd->fetch_array()) {
+					echo "<div class='contenttitle' onclick=\"seediary('".$row[0]."','".$rowd[0]."')\"> ".$rowd[0]."</div>";
+					$countdiary=$countdiary+1;
+				}
+			echo "</div><div class='tools'>
+				<div class='setting' onclick=\"change('".$mycounter."','".$row[0]."')\">
+					修
 				</div>
 				<div class='delete' onclick=\"deletebook('".$row[0]."')\">
-					<img class='delete' src='./img/delete.png'>
+					删
 				</div>
-			</div>
-			<div class='bookinfo'>
-				<div class='title'>".$row[0]."</div>
-				<div class='description'>".$row[1]."</div>
-				<div class='timediv'>".$row[2]."</div>
-				<div class='timediv'>".$row[3]."</div>
-			</div>
-			<div class='contentinfo'>";
-			$queryd="SELECT * FROM `diary` WHERE `userid` = '$name' and `booktitle` = '$account'";
-			$resultsd=$mysqlid->query($queryd);
-			$countdiary=1;
-			while ($rowd = $resultsd->fetch_array()) {
-				if ($countdiary>4) {
-					break;
-				}
-				if($countdiary<4){
-					echo "<div class='contenttitle' onclick=\"seediary('".$row[0]."','".$rowd[0]."')\"> ".$rowd[0]."</div>";
-				}else{
-					echo "<div class='leasttitle' onclick=\"seediary('".$row[0]."','".$rowd[0]."')\"> ".$rowd[0]."</div>";
-				}
-				
-				$countdiary=$countdiary+1;
-			}
-			echo "</div></div>";
+			</div></div>";
+			$mycounter+=1;
 		}
 	?>
-	<!-- /////////////////////////////////////////// -->	
+	<!-- /////////////////////////////////////////// -->
+	<div class="book" id="book" onclick="newbook()">
+		添加
+	</div>	
 </div>

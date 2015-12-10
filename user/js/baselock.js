@@ -87,18 +87,7 @@ function newlock() {
 	    });
 	});
 }
-function newsave (argument) {
-	var address=document.getElementById('newaddress').value;
-	var accountpassword=document.getElementById('newpasswd').value;
-	var accountname=document.getElementById('newname').value;
-	var accountsecname=document.getElementById('newsecname').value;
-	var accountsecpasswd=document.getElementById('newsecpasswd').value;
-	ajaxContact('new',address,accountname,accountpassword,accountsecname,accountsecpasswd);
-	location.reload(true);
-}
-function newcancle (argument) {
-	$("#newdiv").slideToggle();
-}
+
 
 function deleteuser(target,address) {
 	$("#"+target).fadeOut();

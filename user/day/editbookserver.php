@@ -6,10 +6,9 @@
 	}
 	$option=$_POST["option"];
 	if ($option=="change") {
-		$diarytitle=$_POST["diarytitle"];
 		$booktitle=$_POST["booktitle"];
-		$diarycontent=$_POST["content"];
-		$newdiarytitle=$_POST["newdiarytitle"];
+		$newbooktitle=$_POST["newbooktitle"];
+		$bookdescription=$_POST["bookdescription"];
 
 		$mysqli = new mysqli('127.0.0.1', 'root', '', 'my_db');
 		if(mysqli_connect_errno()){
@@ -20,21 +19,19 @@
 		$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 2);//设置超时时
 		$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
 		$mysqli->query("set names 'utf8'");
-		//$query="SELECT * FROM `informations` WHERE `name` = '$name'";
-		$query="UPDATE `diarbook` SET `diarytitle`='$newdiarytitle',`diarycontent`='$diarycontent' WHERE userid='$name' and booktitle = '$booktitle' and diarytitle='$diarytitle' ";
-
-		//$sql = "UPDATE `informations` SET `realname`='新月' WHERE name='xinyue'";
-		$results=$mysqli->query($query);
-		if($results){
+		$query1="UPDATE `diarybook` SET `booktitle`='$newbooktitle',`bookdescription`='$bookdescription' WHERE userid='$name' and booktitle = '$booktitle' ";
+		$query2="UPDATE `diary` SET `booktitle`='$newbooktitle' WHERE userid='$name' and booktitle = '$booktitle' ";
+		$results1=$mysqli->query($query1);
+		$results2=$mysqli->query($query2);
+		if($results1||$results2){
 	    	//print 'Success! record updated / deleted'; 
 		}else{
 		    print 'Error : ('. $mysqli->errno .') '. $mysqli->error;
 		}
 		//$row = $results->fetch_array();
 	} elseif ($option=="new") {
-		$booktitle=$_POST["booktitle"];
-		$content=$_POST["content"];
-		$newdiarytitle=$_POST["newdiarytitle"];
+		$newbooktitle=$_POST["newbooktitle"];
+		$bookdescription=$_POST["bookdescription"];
 
 		$mysqli = new mysqli('127.0.0.1', 'root', '', 'my_db');
 		if(mysqli_connect_errno()){
@@ -46,7 +43,7 @@
 		$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
 		$mysqli->query("set names 'utf8'");
 
-		$query = "INSERT INTO `diary` (`diarytitle`, `diarycontent`, `diarycreatetime`, `diarymodifytime`, `userid`, `booktitle`) VALUES ('$newdiarytitle', '$content', '$time', '$time', '$name', '$booktitle');";
+		$query = "INSERT INTO `diarybook` (`booktitle`, `bookdescription`, `bookcreatetime`, `bookmodifytime`, `userid`) VALUES ('$newbooktitle', '$bookdescription', '$time', '$time', '$name');";
 		$results=$mysqli->query($query);
 		if($results){
 	    	//print 'Success! record updated / deleted'; 
@@ -67,7 +64,7 @@
 		$mysqli->query("set names 'utf8'");
 //DELETE FROM `my_db`.`lock` WHERE `lock`.`address` = \'momo\'
 		$query = "DELETE FROM `diarybook` WHERE `booktitle` = '$booktitle' and `userid` ='$name'";
-		$queryd = "DELETE FROM `diarybook` WHERE `booktitle` = '$booktitle' and `userid` ='$name'";
+		$queryd = "DELETE FROM `diary` WHERE `booktitle` = '$booktitle' and `userid` ='$name'";
 		$results=$mysqli->query($queryd);
 		$results=$mysqli->query($query);
 		if($results){

@@ -1,51 +1,40 @@
 .books{
-	margin-left: 80px;
-	margin-top: 60px;
-	width: 600px;
-	background-color: #BBDFF2;
-	box-shadow:2px 2px 10px #909090;
+	width: 650px;
 	padding-top: 30px;
 	padding-left: 60px;
-	padding-bottom: 30px;
 	float: left;
 }
 
 .book{
-	margin-top: 30px;
 	float: left;
-	border-bottom: 1px solid gray;
+	margin-top: 30px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	padding-right: 20px;
+	border-bottom: 1px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
 }
-.tools{
-	float: right;
-	width: 30px;
-	margin-left: 20px;
-}
-.setting{
-	border-radius: 15px;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-}
-.delete{
-	margin-top: 2px;
-	border-radius: 15px;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-}
+
+
 .bookinfo{
-	margin-top: 15px;
 	float: left;
 	width: 200px;
+	padding-right: 20px;
+	border-right: 1px solid #eaeaea;
 }
 .title{
-	font-size: 19pt;
+	font-size: 15pt;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #eaeaea;
 }
 .description{
-	font-size: 11pt;
+	font-size: 10pt;
+	height: 40px;
 	color: #898EAF;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 15px;
+	padding-left: 10px;
+	height: 55px;
 }
 .timediv{
 	clear: both;
@@ -56,83 +45,104 @@
 	font-size: 9pt;
 	color: #957EF2;
 }
+
+
 .contentinfo{
-	margin-top: 15px;
 	float: left;
-	width: 300px;
+	margin-left: 25px;
+	margin-right: 10px;
+	width: 200px;
+	font-size: 10pt;
+}
+.contenttitle{
+	line-height: 20px;
+	margin-top: 15px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	border-bottom: 1px dashed #eaeaea;
+	border-left: 1px dashed #eaeaea;
 }
 
-.contenttitle{
-	margin-left: 15px;
-	line-height: 20px;
-	padding-top: 8px;
-	padding-bottom: 2px;
-	padding-left: 5px;
-	border-bottom: 1px dashed gray;
-}
-.leasttitle{
-	margin-left: 15px;
-	line-height: 20px;
-	padding-top: 8px;
-	padding-bottom: 2px;
-	padding-left: 5px;
-}
-.newdiarybook{
-	border-radius: 25px;
-	position: fixed;
-	font-size: 15pt;
-	line-height: 50px;
+.tools{
+	float: right;
 	text-align: center;
-	left: 1120px;
-	top: 300px;
-	width: 50px;
-	height: 50px;
-	background-color: #8A7EF3;
+	width: 30px;
+	margin-top: 20px;
+	margin-left: 20px;
+	cursor: pointer;
 }
+.setting{
+	height: 30px;
+	line-height: 30px;
+	background-color: #77FFAE;
+}
+.delete{
+	height: 30px;
+	line-height: 30px;
+	background-color: #06FF6A;
+}
+
+
+#book{
+	clear: both;
+	padding-top: 10px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	width: 100px;
+	color: #75A8EA;
+
+	cursor: pointer;
+}
+
 .newdiv{
-	position: fixed;
-	width: 300px;
-	height: 400px;
-	background-color: #F4F493;
-	left: 45%;
-	top: 25%;
 	display: none;
+	position: absolute;
+	width: 250px;
+	opacity: 0.2;
+	height: 300px;
+	top: 350px;
+	left: 480px;
+	background-color: #ffffff;
+	box-shadow:2px 2px 10px #909090;
 }
 #newbooktitle{
-	padding-left: 5px;
 	height: 30px;
-	font-size: 15pt;
+	width: 180px;
+	font-size: 14pt;
 	margin-top: 30px;
-	margin-left: 10px;
-	width: 150px;
-	border: 0px;
-	border-bottom: 1px solid gray;
+	margin-left: 15px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	border:none;
+	border-bottom: 1px solid #eaeaea;
 	outline: none;
-	background-color: #F4F493;
+	font-family: yahei;
 }
 #newbookdesc{
-	margin-top: 15px;
-	height: 50px;
-	margin-left: 10px;
 	width: 220px;
-	background-color: #F4F496;
-	height: 250px;
+	height: 150px;
+	margin-top: 10px;
+	margin-left: 20px;
+	font-size: 10pt;
+	color: #6c6c6c;
+	border: none;
+	font-family: yahei;
 	resize: none;
-	border: 0px;
 	outline: none;
 }
-.button{
+.changetools{
+	clear: both;
+}
+.changetool{
 	float: right;
-	border: 0px;
-	margin-right: 10px;
-	width: 60px;
-	height: 35px;
-	background-color: #7882DE;
-	border-radius: 3px;
+	margin-top: 15px;
+	margin-right: 20px;
+	color: #3FA8E9;
+	font-size: 11pt;
+	font-family: yahei;
+	cursor: pointer;
 }
-.button:hover{
-	background-color: #5967E8;
-}
-.button:active{
-	background-color: #2F43F7;
+#changesave{
+	color: red;
 }
