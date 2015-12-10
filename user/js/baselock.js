@@ -1,4 +1,6 @@
-var globleobj;
+var targetlcok;
+var globletarget;
+var isnew;
 function showpasswd (target) {
 	if (document.getElementById(target+'passwd').type=="text") {
 		document.getElementById(target+'passwd').type="password";
@@ -14,6 +16,24 @@ function showsecpasswd (target) {
 	};
 }
 
+function change (target,address) {
+	isnew="change";
+	targetlcok=address;
+	globletarget=target;
+	$(function(){
+		$("#changelock").show();
+		$("#changelock").animate({
+	      top:'120px',
+	      opacity:'1'
+	    });
+	});
+	$("#changename")[0].value=$("#"+target+"name")[0].value;
+	$("#changepasswd")[0].value=$("#"+target+"passwd")[0].value;
+	$("#changesecname")[0].value=$("#"+target+"secname")[0].value;
+	$("#changesecwd")[0].value=$("#"+target+"secwd")[0].value;
+	$("#changeaddress")[0].value=$("#"+target+"address").text();
+}
+
 function changecancel() {
 	$(function(){
 		$("#changelock").animate({
@@ -22,7 +42,43 @@ function changecancel() {
 	    });
 	});
 }
-function change (target,address) {
+
+function changesave() {
+	if(isnew=="new"){
+		var changename=$("#changename")[0].value;
+		var changepasswd=$("#changepasswd")[0].value;
+		var changesecname=$("#changesecname")[0].value;
+		var changesecwd=$("#changesecwd")[0].value;
+		var changeaddress=$("#changeaddress")[0].value;
+		// alert(changename+":"+changepasswd+":"+changesecname+":"+changesecwd+":"+changeaddress);
+		ajaxContact('new',"",changeaddress,changename,changepasswd,changesecname,changesecwd);
+		changepage();
+	}else{
+		var changename=$("#changename")[0].value;
+		var changepasswd=$("#changepasswd")[0].value;
+		var changesecname=$("#changesecname")[0].value;
+		var changesecwd=$("#changesecwd")[0].value;
+		var changeaddress=$("#changeaddress")[0].value;
+		// alert(changename+":"+changepasswd+":"+changesecname+":"+changesecwd+":"+changeaddress);
+		
+		ajaxContact('change',targetlcok,changeaddress,changename,changepasswd,changesecname,changesecwd);
+		
+		$("#"+globletarget+"name")[0].value=changename;
+		$("#"+globletarget+"passwd")[0].value=changepasswd;
+		$("#"+globletarget+"secname")[0].value=changesecname;
+		$("#"+globletarget+"secwd")[0].value=changesecwd;
+		$("#"+globletarget+"address").text(changeaddress);
+		changecancel();
+	}
+}
+
+function newlock() {
+	isnew="new";
+	$("#changename")[0].value="";
+	$("#changepasswd")[0].value="";
+	$("#changesecname")[0].value="";
+	$("#changesecwd")[0].value="";
+	$("#changeaddress")[0].value="";
 	$(function(){
 		$("#changelock").show();
 		$("#changelock").animate({
@@ -30,35 +86,6 @@ function change (target,address) {
 	      opacity:'1'
 	    });
 	});
-	// alert($("#"+target+"name")[0].value);
-	// alert($("#"+target+"passwd")[0].value);
-	// alert($("#"+target+"secname")[0].value);
-	// alert($("#"+target+"secwd")[0].value);
-	// alert($("#"+target+"address").text());
-	$("#changename")[0].value=$("#"+target+"name")[0].value;
-	$("#changepasswd")[0].value=$("#"+target+"passwd")[0].value;
-	$("#changesecname")[0].value=$("#"+target+"secname")[0].value;
-	$("#changesecwd")[0].value=$("#"+target+"secwd")[0].value;
-	$("#changeaddress")[0].value=$("#"+target+"address").text();
-	// globleobj=obj
-	// document.getElementById('changename').value=document.getElementById(obj+'name').innerHTML;
-	// document.getElementById('changepasswd').value=document.getElementById(obj+'password').value;
-	// document.getElementById('changeaddress').innerHTML=document.getElementById(obj+'address').innerHTML;
-	// if(document.getElementById(obj+"sec").title!="none"){
-	// 	//code here
-	// 	document.getElementById('changesecname').value=document.getElementById(obj+'secname').innerHTML;
-	// 	document.getElementById('changesecpasswd').value=document.getElementById(obj+'secpassword').value;
-	// }
-	// $("#changdiv").slideToggle();
-	// $("#newdiv").hide();
-
-}
-function cancle () {
-	$("#changdiv").slideToggle();
-}
-function newlock() {
-	$("#changdiv").hide();
-	$("#newdiv").slideToggle();
 }
 function newsave (argument) {
 	var address=document.getElementById('newaddress').value;
@@ -72,10 +99,16 @@ function newsave (argument) {
 function newcancle (argument) {
 	$("#newdiv").slideToggle();
 }
-function ajaxContact(option,address,accountname,accountpassword,accountsecname,accountsecpasswd){
+
+function deleteuser(target,address) {
+	$("#"+target).fadeOut();
+	ajaxContact('delete',address,'','','','','','');
+}
+function ajaxContact(option,oldaddress,address,accountname,accountpassword,accountsecname,accountsecpasswd){
 	$.post("./lock/lockserver.php",
 	{	
 		option:option,
+		oldaddress:oldaddress,
 		address:address,
 		accountname:accountname,
 		accountpassword:accountpassword,
@@ -83,32 +116,11 @@ function ajaxContact(option,address,accountname,accountpassword,accountsecname,a
 		accountsecpasswd:accountsecpasswd
 	},
 	function(data,status){
-		alert("数据：" + data + "\n状态：" + status);
-		//document.getElementById("target").innerHTML=data;
+		// alert("数据：" + data + "\n状态：" + status);
 	});
-	// setTimeout("document.getElementById('target').innerHTML='保存成功！'",3000);
-	// setTimeout("document.getElementById('target').innerHTML=''",5000);
 }
-function save () {
-	// 1.后台更新数据库
-	var address=document.getElementById('changeaddress').innerHTML;
-	var accountpassword=document.getElementById('changepasswd').value;
-	var accountname=document.getElementById('changename').value;
-	var accountsecname=document.getElementById('changesecname').value;
-	var accountsecpasswd=document.getElementById('changesecpasswd').value;
-	ajaxContact('change',address,accountname,accountpassword,accountsecname,accountsecpasswd);
-	// 2.更新界面
-	document.getElementById(globleobj+'password').value=document.getElementById('changepasswd').value;
-	document.getElementById(globleobj+'address').innerHTML=document.getElementById('changeaddress').innerHTML;
-	document.getElementById(globleobj+'secname').innerHTML=document.getElementById('changesecname').value;
-	document.getElementById(globleobj+'secpassword').value=document.getElementById('changesecpasswd').value;
-	// 3.change页面关闭
-	$("#changdiv").slideToggle();
-}
-function addsec() {
-	document.getElementById("newplusdiv").style.display="none";
-}
-function deleteuser(target,address) {
-	$("#"+target).fadeOut();
-	ajaxContact('delete',address,'accountname','accountpassword','accountsecname','accountsecpasswd');
+function changepage() {
+	$.get("./lock/baselock.php",function(data){
+　　　　$("#maindiv").html(data); 
+　　});
 }

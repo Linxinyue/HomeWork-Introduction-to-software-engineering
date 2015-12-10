@@ -7,6 +7,7 @@
 	$option=$_POST["option"];
 	if ($option=="change") {
 		$address=$_POST["address"];
+		$oldaddress=$_POST["oldaddress"];
 		$accountname=$_POST["accountname"];
 		$accountpassword=$_POST["accountpassword"];
 		$accountsecname=$_POST["accountsecname"];
@@ -22,8 +23,8 @@
 		$mysqli->real_connect('127.0.0.1', 'root', '', 'my_db');
 		$mysqli->query("set names 'utf8'");
 		//$query="SELECT * FROM `informations` WHERE `name` = '$name'";
-		$query="UPDATE `lock` SET `accountname`='$accountname',`accountpwd`='$accountpassword',
-		`accountque`='$accountsecname',`accountans`='$accountsecpasswd' WHERE userid='$name' and address = '$address'";
+		$query="UPDATE `lock` SET `address`='$address',`accountname`='$accountname',`accountpwd`='$accountpassword',
+		`accountque`='$accountsecname',`accountans`='$accountsecpasswd' WHERE userid='$name' and address = '$oldaddress'";
 
 		//$sql = "UPDATE `informations` SET `realname`='新月' WHERE name='xinyue'";
 		$results=$mysqli->query($query);

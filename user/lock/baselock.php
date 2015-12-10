@@ -17,7 +17,8 @@
 		echo "<script>window.location.href='http://127.0.0.1';</script>";
 	}
 ?>
-<!-- 修改div -->
+<div id="maindiv">
+	<!-- 修改div -->
 <div class="changelock" id="changelock">
 	<div class="sublock">
 		<div class="lockdesc">
@@ -58,101 +59,10 @@
 	</div>
 	<div class="changetools">
 		<div class="changetool" onclick="changecancel()">取消</div>
-		<div class="changetool" id="changesave">确认</div>
+		<div class="changetool" id="changesave" onclick="changesave()">确认</div>
 	</div>
 </div>
 
-<!-- newdiv -->
-<div id="newdiv">
-		<div class="buttoncheck" onclick="newsave()">
-			<img class="check" src="./img/check.png"/>
-		</div>
-		<div class="buttoncancle" onclick="newcancle()">
-			<img class="cancle" src="./img/cancle.png"/>
-		</div>
-		<div class="newaddress">
-			<input type="text" id="newaddress" placeholder="address" />
-		</div>
-		
-		<div class="accountsceboth">
-			<div class="accountname">
-				name: 
-				<input id="newname" type="text" />
-			</div>	
-			<div class="accountpwd">
-				pawd:
-				<input id="newpasswd" type="text" />
-				
-			</div>
-		</div>
-
-		<div class="line"></div>
-
-		<div class="security" id="user1sec">
-			<div class="seccontent">
-				<div class="accountname">
-					secname: 
-					<input id="newsecname" type="text" />
-				</div>
-				<div class="accountpwd">
-					secpawd:
-					<input id="newsecpasswd"  type="text" />
-				</div>
-			</div>
-		</div>
-	</div>
-
-<!-- 默认带安全的显示div -->
-<div class="maindiv">
-	<div class="lockboth">
-		<div class="sublock" id="baselock">
-			<div class="lockdesc">
-				账号密码
-			</div>
-			<div class="sublocks">
-				<div class="sublockdesc">账号：</div>
-				<div class="lockname">
-					<input type="text" class="inputlock" disabled />
-				</div>
-			</div>
-			<div class="sublocks">
-				<div class="sublockdesc">密码：</div>
-				<div class="lockname">
-					<input type="text" class="inputlock" disabled value="7777" />
-				</div>
-			</div>
-		</div>
-		<div class="sublock">
-			<div class="lockdesc">
-				账号密保
-			</div>
-			<div class="sublocks">
-				<div class="sublockdesc">账号：</div>
-				<div class="lockname">
-					<input type="text" class="inputlock" disabled />
-				</div>
-			</div>
-			<div class="sublocks">
-				<div class="sublockdesc">密码：</div>
-				<div class="lockname">
-					<input type="text" class="inputlock" disabled value="7777" />
-				</div>
-			</div>
-		</div>
-		<div class="tools">
-			<div class="tool" id="mi">码</div>
-			<div class="tool" id="ba">保</div>
-			<div class="tool" id="xu">修</div>
-			<div class="tool" id="sh">删</div>
-		</div>
-		<div class="address">hhhhh</div>
-	</div>
-</div>
-
-
-
-
-<!-- ////////////////////////////////////////////////// -->
 
 <?php 
 	
@@ -219,8 +129,13 @@
 <!-- ///////////////////////////////////////////////// -->
 
 <!-- 添加的div -->
-	<div class="plusdiv" onclick="newlock()">
-		<img class="plus" src="./img/plus.png" />
+	<div class="newlock" onclick="newlock()">
+		添加
 	</div>
+	<!-- <div class="plusdiv" onclick="newlock()">
+		<img class="plus" src="./img/plus.png" />
+	</div> -->
+</div>
+
 </body>
 </html>
