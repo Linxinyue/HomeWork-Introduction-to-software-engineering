@@ -71,6 +71,9 @@
 				$resultsd=$mysqlid->query($queryd);
 				$countdiary=1;
 				while ($rowd = $resultsd->fetch_array()) {
+					if($countdiary>3){
+						break;
+					}
 					echo "<div class='contenttitle' onclick=\"seediary('".$row[0]."','".$rowd[0]."')\"> ".$rowd[0]."</div>";
 					$countdiary=$countdiary+1;
 				}
