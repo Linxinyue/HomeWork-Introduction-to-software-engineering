@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./user/css/yahei.css" />
+	<style type="text/css">
+		body{
+			font-family: yahei;
+		}
+		.header{
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			height: 60px;
+			width:100%;
+			background-color: rgba(233,233,233,0);
+			padding-bottom:2px;
+			text-align: center;
+		}
+		.main_icon{
+			margin-top: 8px;
+			width: 50px;
+			float: left;
+			margin-left: 4%;
+			margin-right: 40px;
+			border: 0;
+		}
+		
+		
+		.top_main{
+			width: 450px;
+			margin-left: 5%;
+			float: right;
+		}
+		.top_button{
+			float: left;
+			height: 62px;
+			width: 100px;
+			color: #72D85E;
+			font-size: 12pt;
+			line-height: 70px;
+		}
+		.header_right{
+			width: 100px;
+			line-height: 70px;
+			float: left;
+			text-align: center;
+			font-size: 12pt;
+			color: #72D85E;
+		}
+	</style>
+	<script type="text/javascript">
+		function selected_head (secid) {
+			document.getElementById(secid).style.color='#5EC8D8';
+		}
+		function unselected_head (secid) {
+			document.getElementById(secid).style.color='#72D85E';
+		}
+	</script>
+</head>
+<body>
+	<div class="header">
+		<div class="top_main">	
+			
+			<a href="./index.php">
+				<div class="top_button" 
+				id='index' onmouseover="selected_head('index')" onmouseout="unselected_head('index')">首页</div>
+			</a>
+			<a href="./about.php">
+				<div class="top_button" 
+				id='todo' onmouseover="selected_head('todo')" onmouseout="unselected_head('todo')">关于SPM</div>
+			</a>
+			<a href="./learnmore.php">
+				<div class="top_button"
+				id='people' onmouseover="selected_head('people')" onmouseout="unselected_head('people')">了解更多</div>
+			</a>
+			<!-- <a href="./contact.php">
+				<div class="top_button"
+				id='birthday' onmouseover="selected_head('birthday')" onmouseout="unselected_head('birthday')">联系我们</div>
+			</a> -->
+			<a href="./user/checkLogin.php">
+				<div class="header_right" 
+				id='enter' onmouseover="selected_head('enter')" onmouseout="unselected_head('enter')">进入系统</div>
+			</a>
+			
+		</div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+body{
+	margin: 60px 0;
+	padding:0 0;
+	overflow: hidden;
+}
+.left{
+	float: left;
+	width: 200px;
+	padding-top: 20px;
+	background-color: #FAFAFA;
+	border-right: 1px solid #e5e5e5;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.left_item{
+	float: left;
+	width: 200px;
+	height: 80px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.booktitle{
+	float: left;
+	margin-top: 20px;
+	font-size: 14pt;
+	margin-left: 50px;
+}
+.bookdate{
+	clear: both;
+	float: right;
+	margin-right: 20px;
+	margin-top: 5px;
+	font-size: 9pt;
+	color: gray;
+}
+.right{
+	float: left;
+	width: 1140px;
+	height: 600px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#editbook{
+	font-size: 12pt;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	color: #00FF00;
+	font-family: yahei;
+}

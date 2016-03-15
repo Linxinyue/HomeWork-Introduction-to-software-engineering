@@ -1,0 +1,127 @@
+.back{
+	color:#7C92A6;
+	border-bottom: 2px solid #E5E5E5;
+	padding-bottom: 15px;
+	width: 900px;
+	cursor:pointer;
+}
+#date_picker_demo{
+	padding-left: 10px;
+	width: 70px;
+	height: 25px;
+	margin-top:15px; 
+	border: 0px;
+	color:#90BEE8;
+}
+.timeproject{
+	color:#90BEE8;
+}
+.isdone{
+	float: left;
+	margin-top: 10px;
+	width: 15px;
+	height: 15px;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	overflow: hidden;
+}
+.editdoneimage{
+	margin-bottom: 6px;
+	display: none;
+}
+.todo{
+	clear: both;
+	float: left;
+	margin-left: 10px;
+	margin-top: 30px;
+}
+.todotitle{
+	float: left;
+	margin-left: 10px;
+	margin-top: 3px;
+	font-weight : bold;
+}
+.inputtitle{
+	font-size: 17pt;
+	font-weight : bold;
+	padding-left: 10px;
+	border: 0px;
+	font-family: yahei;
+	outline: none;
+}
+.desc{
+	clear: both;
+	float: left;
+	margin-top: 30px;
+	margin-left: 30px;
+	color: #444444;
+}
+.inputdesc{
+	width: 500px;
+	height: 120px;
+	resize: none;
+	border:0px;
+	font-family: yahei;
+	outline: none;
+}
+#mainedit{
+	width: 1000px;
+}
+.tools{
+	float: left;
+	margin-left: 420px;
+	margin-top: 20px;
+	clear: both;
+}
+.buttondel{
+	font-size: 16px;
+	width: 50px;
+	height: 40px;
+	border: 0px;
+	color: red;
+	outline: none;
+	font-family: yahei;
+	cursor:pointer;
+	background-color: #FFFFFF;
+}
+.buttonsub{
+	width: 50px;
+	height: 40px;
+	font-size: 16px;
+	font-family: yahei;
+	border: 0px;
+	cursor:pointer;
+	outline: none;
+	background-color: #FFFFFF;
+}
+.selectproject{
+	float: left;
+	font-size: 11pt;
+	margin-top: 17px;
+	margin-left: 10px;
+	cursor:pointer;
+}
+#date_picker_demo{
+	float: left;
+}
+.nowproject{
+	position: absolute;
+	background: white;
+}
+.otherproject{
+	z-index: 1;
+	width: 200px;
+	position: absolute;
+	background: white;
+	display: none;
+}
+.projectls{
+	font-size: 10pt;
+	height: 25px;
+	line-height: 25px;
+	border-bottom: 1px solid #eCeCeC;
+	border-left: 1px solid #eCeCeC;
+	padding-left: 5px;
+	padding-bottom: 2px;
+	margin-top: 5px;
+}
